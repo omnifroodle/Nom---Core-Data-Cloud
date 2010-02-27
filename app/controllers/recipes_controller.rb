@@ -7,6 +7,7 @@ class RecipesController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @recipes }
+      format.plist { render :layout => false}
     end
   end
 
