@@ -4,7 +4,7 @@ xml.declare! :DOCTYPE, :plist, :PUBLIC, "-//Apple Computer//DTD PLIST 1.0//EN", 
 xml.plist("version" => 1.0) do |plist|
   plist.dict do |wrapper|
     @recipes.each do |recipe|
-      wrapper.key occasion.id
+      wrapper.key recipe.id
       wrapper.dict do |dict|
         dict.key 'title'
         dict.string recipe.title
@@ -17,7 +17,7 @@ xml.plist("version" => 1.0) do |plist|
         dict.key 'cdc_master_id'
         dict.integer recipe.id
         dict.key 'updated'
-        dict.integer occasion.updated_at.to_i
+        dict.integer recipe.updated_at.to_i
       end
     end
   end

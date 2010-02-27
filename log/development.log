@@ -47,3 +47,140 @@ Processing RecipesController#new (for 127.0.0.1 at 2010-02-27 15:16:52) [GET]
 Rendering template within layouts/recipes
 Rendering recipes/new
 Completed in 14ms (View: 10, DB: 0) | 200 OK [http://0.0.0.0/recipes/new]
+
+
+Processing RecipesController#index to plist (for 127.0.0.1 at 2010-02-27 15:24:48) [GET]
+  [4;36;1mRecipe Load (0.3ms)[0m   [0;1mSELECT * FROM "recipes" [0m
+Rendering recipes/index
+Completed in 184ms (View: 180, DB: 0) | 200 OK [http://localhost/recipes.plist]
+
+
+Processing RecipesController#index (for 127.0.0.1 at 2010-02-27 15:25:03) [GET]
+  [4;35;1mRecipe Load (0.3ms)[0m   [0mSELECT * FROM "recipes" [0m
+Rendering template within layouts/recipes
+Rendering recipes/index
+Completed in 5ms (View: 1, DB: 0) | 200 OK [http://localhost/recipes]
+
+
+Processing RecipesController#new (for 127.0.0.1 at 2010-02-27 15:25:05) [GET]
+Rendering template within layouts/recipes
+Rendering recipes/new
+Completed in 9ms (View: 5, DB: 0) | 200 OK [http://localhost/recipes/new]
+
+
+Processing RecipesController#create (for 127.0.0.1 at 2010-02-27 15:25:27) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"KkQp3gpfSt8bNcbt5yQ//4qmmqo5VLI7yTGOIhO01RQ=", "recipe"=>{"course"=>"any!", "title"=>"mud", "serves"=>"2", "desc"=>"get water\r\nadd dirt\r\neat"}}
+  [4;36;1mRecipe Create (0.4ms)[0m   [0;1mINSERT INTO "recipes" ("course", "created_at", "title", "updated_at", "serves", "desc") VALUES('any!', '2010-02-27 20:25:27', 'mud', '2010-02-27 20:25:27', 2, 'get water
+add dirt
+eat')[0m
+Redirected to http://localhost:3000/recipes/1
+Completed in 22ms (DB: 0) | 302 Found [http://localhost/recipes]
+
+
+Processing RecipesController#show (for 127.0.0.1 at 2010-02-27 15:25:27) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mRecipe Load (0.2ms)[0m   [0mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/recipes
+Rendering recipes/show
+Completed in 11ms (View: 6, DB: 0) | 200 OK [http://localhost/recipes/1]
+
+
+Processing RecipesController#index to plist (for 127.0.0.1 at 2010-02-27 15:25:33) [GET]
+  [4;36;1mRecipe Load (0.4ms)[0m   [0;1mSELECT * FROM "recipes" [0m
+Rendering recipes/index
+
+ActionView::TemplateError (undefined local variable or method `occasion' for #<ActionView::Base:0x103386158>) on line #7 of app/views/recipes/index.plist.rxml:
+4: xml.plist("version" => 1.0) do |plist|
+5:   plist.dict do |wrapper|
+6:     @recipes.each do |recipe|
+7:       wrapper.key occasion.id
+8:       wrapper.dict do |dict|
+9:         dict.key 'title'
+10:         dict.string recipe.title
+
+    app/views/recipes/index.plist.rxml:7:in `_run_rxml_app47views47recipes47index46plist46rxml'
+    app/views/recipes/index.plist.rxml:6:in `each'
+    app/views/recipes/index.plist.rxml:6:in `_run_rxml_app47views47recipes47index46plist46rxml'
+    builder (2.1.2) lib/builder/xmlbase.rb:134:in `call'
+    builder (2.1.2) lib/builder/xmlbase.rb:134:in `_nested_structures'
+    builder (2.1.2) lib/builder/xmlbase.rb:58:in `method_missing'
+    app/views/recipes/index.plist.rxml:5:in `_run_rxml_app47views47recipes47index46plist46rxml'
+    builder (2.1.2) lib/builder/xmlbase.rb:134:in `call'
+    builder (2.1.2) lib/builder/xmlbase.rb:134:in `_nested_structures'
+    builder (2.1.2) lib/builder/xmlbase.rb:58:in `method_missing'
+    app/views/recipes/index.plist.rxml:4:in `_run_rxml_app47views47recipes47index46plist46rxml'
+    app/controllers/recipes_controller.rb:10:in `index'
+    app/controllers/recipes_controller.rb:7:in `index'
+
+Rendered rescues/_trace (110.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing RecipesController#index to plist (for 127.0.0.1 at 2010-02-27 15:25:49) [GET]
+  [4;35;1mRecipe Load (0.4ms)[0m   [0mSELECT * FROM "recipes" [0m
+Rendering recipes/index
+
+ActionView::TemplateError (undefined local variable or method `occasion' for #<ActionView::Base:0x10352a720>) on line #7 of app/views/recipes/index.plist.rxml:
+4: xml.plist("version" => 1.0) do |plist|
+5:   plist.dict do |wrapper|
+6:     @recipes.each do |recipe|
+7:       wrapper.key occasion.id
+8:       wrapper.dict do |dict|
+9:         dict.key 'title'
+10:         dict.string recipe.title
+
+    app/views/recipes/index.plist.rxml:7:in `_run_rxml_app47views47recipes47index46plist46rxml'
+    app/views/recipes/index.plist.rxml:6:in `each'
+    app/views/recipes/index.plist.rxml:6:in `_run_rxml_app47views47recipes47index46plist46rxml'
+    builder (2.1.2) lib/builder/xmlbase.rb:134:in `call'
+    builder (2.1.2) lib/builder/xmlbase.rb:134:in `_nested_structures'
+    builder (2.1.2) lib/builder/xmlbase.rb:58:in `method_missing'
+    app/views/recipes/index.plist.rxml:5:in `_run_rxml_app47views47recipes47index46plist46rxml'
+    builder (2.1.2) lib/builder/xmlbase.rb:134:in `call'
+    builder (2.1.2) lib/builder/xmlbase.rb:134:in `_nested_structures'
+    builder (2.1.2) lib/builder/xmlbase.rb:58:in `method_missing'
+    app/views/recipes/index.plist.rxml:4:in `_run_rxml_app47views47recipes47index46plist46rxml'
+    app/controllers/recipes_controller.rb:10:in `index'
+    app/controllers/recipes_controller.rb:7:in `index'
+
+Rendered rescues/_trace (45.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing RecipesController#index to plist (for 127.0.0.1 at 2010-02-27 15:26:06) [GET]
+  [4;36;1mRecipe Load (0.4ms)[0m   [0;1mSELECT * FROM "recipes" [0m
+Rendering recipes/index
+Completed in 178ms (View: 174, DB: 0) | 200 OK [http://localhost/recipes.plist]
+
+
+Processing RecipesController#index (for 127.0.0.1 at 2010-02-27 15:26:18) [GET]
+  [4;35;1mRecipe Load (0.4ms)[0m   [0mSELECT * FROM "recipes" [0m
+Rendering template within layouts/recipes
+Rendering recipes/index
+Completed in 10ms (View: 6, DB: 0) | 200 OK [http://localhost/recipes]
+
+
+Processing RecipesController#edit (for 127.0.0.1 at 2010-02-27 15:26:20) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mRecipe Load (0.2ms)[0m   [0;1mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/recipes
+Rendering recipes/edit
+Completed in 14ms (View: 9, DB: 0) | 200 OK [http://localhost/recipes/1/edit]
+
+
+Processing RecipesController#update (for 127.0.0.1 at 2010-02-27 15:26:22) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"KkQp3gpfSt8bNcbt5yQ//4qmmqo5VLI7yTGOIhO01RQ=", "id"=>"1", "recipe"=>{"course"=>"any!", "title"=>"mud pie", "serves"=>"2", "desc"=>"get water\r\nadd dirt\r\neat"}}
+  [4;35;1mRecipe Load (0.2ms)[0m   [0mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+  [4;36;1mRecipe Update (0.3ms)[0m   [0;1mUPDATE "recipes" SET "updated_at" = '2010-02-27 20:26:22', "title" = 'mud pie' WHERE "id" = 1[0m
+Redirected to http://localhost:3000/recipes/1
+Completed in 10ms (DB: 0) | 302 Found [http://localhost/recipes/1]
+
+
+Processing RecipesController#show (for 127.0.0.1 at 2010-02-27 15:26:22) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mRecipe Load (0.2ms)[0m   [0mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/recipes
+Rendering recipes/show
+Completed in 7ms (View: 2, DB: 0) | 200 OK [http://localhost/recipes/1]
