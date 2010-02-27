@@ -1,0 +1,49 @@
+
+
+Processing RecipesController#index (for 127.0.0.1 at 2010-02-27 15:16:33) [GET]
+  [4;36;1mRecipe Load (0.0ms)[0m   [0;1mSQLite3::SQLException: no such table: recipes: SELECT * FROM "recipes" [0m
+
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such table: recipes: SELECT * FROM "recipes" ):
+  app/controllers/recipes_controller.rb:5:in `index'
+
+Rendered rescues/_trace (38.5ms)
+Rendered rescues/_request_and_response (1.2ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (1.7ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateRecipes (20100227201129)
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCREATE TABLE "recipes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "desc" text, "course" varchar(255), "serves" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100227201129')[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("recipes")[0m
+
+
+Processing RecipesController#index (for 127.0.0.1 at 2010-02-27 15:16:46) [GET]
+  [4;35;1mRecipe Load (0.4ms)[0m   [0mSELECT * FROM "recipes" [0m
+Rendering template within layouts/recipes
+Rendering recipes/index
+Completed in 102ms (View: 98, DB: 0) | 200 OK [http://0.0.0.0/recipes]
+
+
+Processing RecipesController#new (for 127.0.0.1 at 2010-02-27 15:16:52) [GET]
+Rendering template within layouts/recipes
+Rendering recipes/new
+Completed in 14ms (View: 10, DB: 0) | 200 OK [http://0.0.0.0/recipes/new]
