@@ -1,0 +1,10 @@
+<% semantic_form_for(@recipe) do |f| %>
+	<% f.inputs do %>
+		<%= f.input :title %>
+		<%= f.input :desc, :label => 'Description' %>
+		<%= f.input :course %>
+		<%= f.input :serves %>
+		<%= f.input :deleted %>
+		<%= f.buttons %>
+	<% end %>
+<% end %>

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100227201129) do
+ActiveRecord::Schema.define(:version => 20100301042306) do
 
   create_table "recipes", :force => true do |t|
     t.string   "title"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(:version => 20100227201129) do
     t.integer  "serves"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "deleted",    :default => false
   end
 
 end

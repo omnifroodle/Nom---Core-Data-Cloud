@@ -4,14 +4,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <title>Recipes: <%= controller.action_name %></title>
-  <%= stylesheet_link_tag 'scaffold' %>
+  <title><%= controller.controller_name %>: <%= controller.action_name %></title>
+  <%= stylesheet_link_tag 'scaffold', 'formtastic' %>
 </head>
 <body>
-
-<p style="color: green"><%= flash[:notice] %></p>
-
-<%= yield %>
-
+	<div id="main">
+		<p style="color: green"><%= flash[:notice] %></p>
+	
+		<%= yield %>
+	</div>
 </body>
 </html>
