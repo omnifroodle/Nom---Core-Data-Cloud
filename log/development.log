@@ -476,3 +476,9 @@ Processing RecipesController#index (for 127.0.0.1 at 2010-02-28 23:59:21) [GET]
 Rendering template within layouts/application
 Rendering recipes/index
 Completed in 12ms (View: 7, DB: 0) | 200 OK [http://localhost/recipes]
+
+
+Processing RecipesController#index to plist (for 127.0.0.1 at 2010-03-01 00:07:56) [GET]
+  [4;36;1mRecipe Load (22.4ms)[0m   [0;1mSELECT * FROM "recipes" [0m
+Rendering recipes/index
+Completed in 259ms (View: 232, DB: 22) | 200 OK [http://localhost/recipes.plist]
