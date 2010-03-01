@@ -19,7 +19,7 @@ xml.plist("version" => 1.0) do |plist|
         dict.key 'updated'
         dict.integer recipe.updated_at.to_i
         dict.key 'deleted'
-        recipe.deleted? ? dict.false : dict.true 
+        recipe.deleted? ? dict.true : dict.false 
       end
     end
   end
