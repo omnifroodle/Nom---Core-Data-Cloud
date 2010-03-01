@@ -2,8 +2,8 @@ class RecipesController < ApplicationController
   # GET /recipes
   # GET /recipes.xml
   def index
-    @recipes = Recipe.all
-
+    @recipes = Recipe.from(params[:last]).all
+    
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @recipes }
