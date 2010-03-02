@@ -523,3 +523,19 @@ Processing RecipesController#index to plist (for 127.0.0.1 at 2010-03-01 00:15:3
   [4;35;1mRecipe Load (0.5ms)[0m   [0mSELECT * FROM "recipes" [0m
 Rendering recipes/index
 Completed in 8ms (View: 3, DB: 0) | 200 OK [http://localhost/recipes.plist]
+  [4;36;1mRecipe Load (1.3ms)[0m   [0;1mSELECT * FROM "recipes" ORDER BY recipes.id DESC LIMIT 1[0m
+  [4;36;1mRecipe Load (0.8ms)[0m   [0;1mSELECT * FROM "recipes" ORDER BY recipes.id DESC LIMIT 1[0m
+  [4;36;1mRecipe Load (0.5ms)[0m   [0;1mSELECT * FROM "recipes" ORDER BY recipes.id DESC LIMIT 1[0m
+  [4;36;1mRecipe Load (0.4ms)[0m   [0;1mSELECT * FROM "recipes" ORDER BY recipes.id DESC LIMIT 1[0m
+  [4;36;1mRecipe Load (0.5ms)[0m   [0;1mSELECT * FROM "recipes" ORDER BY recipes.id DESC LIMIT 1[0m
+  [4;35;1mRecipe Load (0.4ms)[0m   [0mSELECT * FROM "recipes" ORDER BY recipes.id DESC LIMIT 1[0m
+  [4;36;1mRecipe Load (0.4ms)[0m   [0;1mSELECT * FROM "recipes" ORDER BY recipes.id DESC LIMIT 1[0m
+  [4;36;1mRecipe Load (1.2ms)[0m   [0;1mSELECT * FROM "recipes" ORDER BY recipes.id DESC LIMIT 1[0m
+  [4;35;1mRecipe Load (0.3ms)[0m   [0mSELECT * FROM "recipes" [0m
+  [4;36;1mRecipe Load (0.3ms)[0m   [0;1mSELECT * FROM "recipes" [0m
+  [4;35;1mRecipe Load (0.3ms)[0m   [0mSELECT * FROM "recipes" [0m
+  [4;36;1mRecipe Load (0.3ms)[0m   [0;1mSELECT * FROM "recipes" [0m
+  [4;36;1mRecipe Load (0.5ms)[0m   [0;1mSELECT * FROM "recipes" [0m
+  [4;36;1mRecipe Load (0.4ms)[0m   [0;1mSELECT * FROM "recipes" [0m
+  [4;35;1mRecipe Load (0.4ms)[0m   [0mSELECT * FROM "recipes" [0m
+  [4;36;1mRecipe Load (0.3ms)[0m   [0;1mSELECT * FROM "recipes" [0m
