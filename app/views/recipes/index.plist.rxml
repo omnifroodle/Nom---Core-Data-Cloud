@@ -14,7 +14,7 @@ xml.plist("version" => 1.0) do |plist|
         dict.string recipe.course
         dict.key 'serves'
         dict.integer recipe.serves
-        dict.key 'cdc_master_id'
+        dict.key 'ccd_remote_id'
         dict.integer recipe.id
         dict.key 'updated'
         dict.integer recipe.updated_at.to_i

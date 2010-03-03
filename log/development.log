@@ -539,3 +539,196 @@ Completed in 8ms (View: 3, DB: 0) | 200 OK [http://localhost/recipes.plist]
   [4;36;1mRecipe Load (0.4ms)[0m   [0;1mSELECT * FROM "recipes" [0m
   [4;35;1mRecipe Load (0.4ms)[0m   [0mSELECT * FROM "recipes" [0m
   [4;36;1mRecipe Load (0.3ms)[0m   [0;1mSELECT * FROM "recipes" [0m
+
+
+Processing RecipesController#index (for 127.0.0.1 at 2010-03-03 17:41:17) [GET]
+  [4;36;1mRecipe Load (0.6ms)[0m   [0;1mSELECT * FROM "recipes" [0m
+Rendering template within layouts/application
+Rendering recipes/index
+Completed in 85ms (View: 79, DB: 1) | 200 OK [http://127.0.0.1/recipes]
+
+
+Processing RecipesController#index to json (for 127.0.0.1 at 2010-03-03 17:41:33) [GET]
+  [4;35;1mRecipe Load (0.5ms)[0m   [0mSELECT * FROM "recipes" [0m
+Completed in 260ms (View: 255, DB: 0) | 200 OK [http://127.0.0.1/recipes.json]
+
+
+Processing RecipesController#index to plist (for 127.0.0.1 at 2010-03-03 17:41:40) [GET]
+  [4;36;1mRecipe Load (0.5ms)[0m   [0;1mSELECT * FROM "recipes" [0m
+Rendering recipes/index
+Completed in 12ms (View: 7, DB: 0) | 200 OK [http://127.0.0.1/recipes.plist]
+
+
+Processing RecipesController#index to plist (for 127.0.0.1 at 2010-03-03 17:43:47) [GET]
+  Parameters: {"last"=>"0"}
+  [4;35;1mRecipe Load (0.6ms)[0m   [0mSELECT * FROM "recipes" [0m
+Rendering recipes/index
+Completed in 13ms (View: 8, DB: 1) | 200 OK [http://127.0.0.1/recipes.plist?last=0]
+
+
+Processing RecipesController#index to plist (for 127.0.0.1 at 2010-03-03 17:45:13) [GET]
+  Parameters: {"last"=>"0"}
+  [4;36;1mRecipe Load (0.5ms)[0m   [0;1mSELECT * FROM "recipes" [0m
+Rendering recipes/index
+Completed in 9ms (View: 4, DB: 1) | 200 OK [http://127.0.0.1/recipes.plist?last=0]
+
+
+Processing RecipesController#index to plist (for 127.0.0.1 at 2010-03-03 17:45:34) [GET]
+  Parameters: {"last"=>"0"}
+  [4;35;1mRecipe Load (0.5ms)[0m   [0mSELECT * FROM "recipes" [0m
+Rendering recipes/index
+Completed in 9ms (View: 4, DB: 0) | 200 OK [http://127.0.0.1/recipes.plist?last=0]
+
+
+Processing RecipesController#index to plist (for 127.0.0.1 at 2010-03-03 17:46:15) [GET]
+  Parameters: {"last"=>"0"}
+  [4;36;1mRecipe Load (0.6ms)[0m   [0;1mSELECT * FROM "recipes" [0m
+Rendering recipes/index
+Completed in 8ms (View: 3, DB: 1) | 200 OK [http://127.0.0.1/recipes.plist?last=0]
+
+
+Processing RecipesController#edit (for 127.0.0.1 at 2010-03-03 17:46:40) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mRecipe Load (0.3ms)[0m   [0mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering recipes/edit
+Rendered recipes/_form (11.5ms)
+Completed in 91ms (View: 85, DB: 0) | 200 OK [http://127.0.0.1/recipes/1/edit]
+
+
+Processing RecipesController#edit (for 127.0.0.1 at 2010-03-03 17:46:40) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mRecipe Load (0.2ms)[0m   [0;1mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering recipes/edit
+Rendered recipes/_form (10.4ms)
+Completed in 18ms (View: 12, DB: 0) | 200 OK [http://127.0.0.1/recipes/1/edit]
+
+
+Processing RecipesController#update (for 127.0.0.1 at 2010-03-03 17:46:42) [PUT]
+  Parameters: {"commit"=>"Update Recipe", "authenticity_token"=>"15mGIbnbuH0q5zD7PmthekPtdbX3QO3hBOURTI5ROc8=", "id"=>"1", "recipe"=>{"course"=>"any!", "title"=>"mud pie", "deleted"=>"0", "serves"=>"2", "desc"=>"get water\r\nadd dirt\r\neat"}}
+  [4;35;1mRecipe Load (0.2ms)[0m   [0mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+  [4;36;1mRecipe Update (0.5ms)[0m   [0;1mUPDATE "recipes" SET "updated_at" = '2010-03-03 22:46:42', "deleted" = 'f' WHERE "id" = 1[0m
+Redirected to http://127.0.0.1:3000/recipes/1
+Completed in 13ms (DB: 1) | 302 Found [http://127.0.0.1/recipes/1]
+
+
+Processing RecipesController#show (for 127.0.0.1 at 2010-03-03 17:46:42) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mRecipe Load (0.2ms)[0m   [0mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering recipes/show
+Completed in 12ms (View: 6, DB: 0) | 200 OK [http://127.0.0.1/recipes/1]
+
+
+Processing RecipesController#index (for 127.0.0.1 at 2010-03-03 17:46:44) [GET]
+  [4;36;1mRecipe Load (0.5ms)[0m   [0;1mSELECT * FROM "recipes" [0m
+Rendering template within layouts/application
+Rendering recipes/index
+Completed in 12ms (View: 7, DB: 0) | 200 OK [http://127.0.0.1/recipes]
+
+
+Processing RecipesController#index to plist (for 127.0.0.1 at 2010-03-03 17:46:47) [GET]
+  Parameters: {"last"=>"0"}
+  [4;35;1mRecipe Load (0.5ms)[0m   [0mSELECT * FROM "recipes" [0m
+Rendering recipes/index
+Completed in 10ms (View: 4, DB: 0) | 200 OK [http://127.0.0.1/recipes.plist?last=0]
+
+
+Processing RecipesController#new (for 127.0.0.1 at 2010-03-03 17:47:07) [GET]
+Rendering template within layouts/application
+Rendering recipes/new
+Rendered recipes/_form (9.8ms)
+Completed in 87ms (View: 81, DB: 0) | 200 OK [http://127.0.0.1/recipes/new]
+
+
+Processing RecipesController#create (for 127.0.0.1 at 2010-03-03 17:47:54) [POST]
+  Parameters: {"commit"=>"Create Recipe", "authenticity_token"=>"15mGIbnbuH0q5zD7PmthekPtdbX3QO3hBOURTI5ROc8=", "recipe"=>{"course"=>"Dessert", "title"=>"Ice Cream Sandwich", "deleted"=>"0", "serves"=>"1", "desc"=>"1 Sandwich\r\n1 Scoop Ice Cream\r\n\r\nOpen Sandwich\r\nPlace Scoop of Ice Cream on Sandwich\r\nClose Sandwich\r\n\r\nEnjoy!"}}
+  [4;36;1mRecipe Create (352.9ms)[0m   [0;1mINSERT INTO "recipes" ("course", "created_at", "title", "updated_at", "deleted", "serves", "desc") VALUES('Dessert', '2010-03-03 22:47:54', 'Ice Cream Sandwich', '2010-03-03 22:47:54', 'f', 1, '1 Sandwich
+1 Scoop Ice Cream
+
+Open Sandwich
+Place Scoop of Ice Cream on Sandwich
+Close Sandwich
+
+Enjoy!')[0m
+Redirected to http://127.0.0.1:3000/recipes/2
+Completed in 365ms (DB: 353) | 302 Found [http://127.0.0.1/recipes]
+
+
+Processing RecipesController#show (for 127.0.0.1 at 2010-03-03 17:47:55) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mRecipe Load (0.3ms)[0m   [0mSELECT * FROM "recipes" WHERE ("recipes"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering recipes/show
+Completed in 9ms (View: 3, DB: 0) | 200 OK [http://127.0.0.1/recipes/2]
+
+
+Processing RecipesController#index to plist (for 127.0.0.1 at 2010-03-03 17:47:59) [GET]
+  Parameters: {"last"=>"1267656402"}
+  [4;36;1mRecipe Load (0.6ms)[0m   [0;1mSELECT * FROM "recipes" WHERE (updated_at >= '2010-03-03 17:46:42') [0m
+Rendering recipes/index
+Completed in 8ms (View: 4, DB: 1) | 200 OK [http://127.0.0.1/recipes.plist?last=1267656402]
+
+
+Processing RecipesController#index to plist (for 127.0.0.1 at 2010-03-03 17:48:03) [GET]
+  Parameters: {"last"=>"1267656402"}
+  [4;35;1mRecipe Load (0.6ms)[0m   [0mSELECT * FROM "recipes" WHERE (updated_at >= '2010-03-03 17:46:42') [0m
+Rendering recipes/index
+Completed in 9ms (View: 4, DB: 1) | 200 OK [http://127.0.0.1/recipes.plist?last=1267656402]
+
+
+Processing RecipesController#index (for 127.0.0.1 at 2010-03-03 17:48:08) [GET]
+  [4;36;1mRecipe Load (0.5ms)[0m   [0;1mSELECT * FROM "recipes" [0m
+Rendering template within layouts/application
+Rendering recipes/index
+Completed in 16ms (View: 10, DB: 1) | 200 OK [http://127.0.0.1/recipes]
+
+
+Processing RecipesController#index to plist (for 127.0.0.1 at 2010-03-03 17:48:24) [GET]
+  Parameters: {"last"=>"1267656402"}
+  [4;35;1mRecipe Load (0.6ms)[0m   [0mSELECT * FROM "recipes" WHERE (updated_at >= '2010-03-03 17:46:42') [0m
+Rendering recipes/index
+Completed in 9ms (View: 4, DB: 1) | 200 OK [http://127.0.0.1/recipes.plist?last=1267656402]
+
+
+Processing RecipesController#index to plist (for 127.0.0.1 at 2010-03-03 17:48:56) [GET]
+  Parameters: {"last"=>"1267656402"}
+  [4;36;1mRecipe Load (0.6ms)[0m   [0;1mSELECT * FROM "recipes" WHERE (updated_at >= '2010-03-03 17:46:42') [0m
+Rendering recipes/index
+Completed in 72ms (View: 67, DB: 1) | 200 OK [http://127.0.0.1/recipes.plist?last=1267656402]
+
+
+Processing RecipesController#index to plist (for 127.0.0.1 at 2010-03-03 17:49:39) [GET]
+  Parameters: {"last"=>"1267656402"}
+  [4;35;1mRecipe Load (0.6ms)[0m   [0mSELECT * FROM "recipes" WHERE (updated_at >= '2010-03-03 17:46:42') [0m
+Rendering recipes/index
+Completed in 9ms (View: 4, DB: 1) | 200 OK [http://127.0.0.1/recipes.plist?last=1267656402]
+
+
+Processing RecipesController#index to plist (for 127.0.0.1 at 2010-03-03 17:50:19) [GET]
+  Parameters: {"last"=>"1267656402"}
+  [4;36;1mRecipe Load (0.6ms)[0m   [0;1mSELECT * FROM "recipes" WHERE (updated_at >= '2010-03-03 17:46:42') [0m
+Rendering recipes/index
+Completed in 9ms (View: 4, DB: 1) | 200 OK [http://127.0.0.1/recipes.plist?last=1267656402]
+
+
+Processing RecipesController#index to plist (for 192.168.2.37 at 2010-03-03 17:50:58) [GET]
+  Parameters: {"last"=>"1267656402"}
+  [4;35;1mRecipe Load (0.6ms)[0m   [0mSELECT * FROM "recipes" WHERE (updated_at >= '2010-03-03 17:46:42') [0m
+Rendering recipes/index
+Completed in 9ms (View: 4, DB: 1) | 200 OK [http://192.168.2.37/recipes.plist?last=1267656402]
+
+
+Processing RecipesController#index to plist (for 192.168.2.37 at 2010-03-03 17:51:13) [GET]
+  Parameters: {"last"=>"1267656402"}
+  [4;36;1mRecipe Load (0.6ms)[0m   [0;1mSELECT * FROM "recipes" WHERE (updated_at >= '2010-03-03 17:46:42') [0m
+Rendering recipes/index
+Completed in 8ms (View: 4, DB: 1) | 200 OK [http://192.168.2.37/recipes.plist?last=1267656402]
+
+
+Processing RecipesController#index to plist (for 192.168.2.37 at 2010-03-03 17:55:41) [GET]
+  Parameters: {"last"=>"1267656402"}
+  [4;35;1mRecipe Load (0.6ms)[0m   [0mSELECT * FROM "recipes" WHERE (updated_at >= '2010-03-03 17:46:42') [0m
+Rendering recipes/index
+Completed in 10ms (View: 4, DB: 1) | 200 OK [http://192.168.2.37/recipes.plist?last=1267656402]
