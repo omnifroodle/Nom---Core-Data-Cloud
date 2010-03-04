@@ -9,7 +9,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100301042306) do
+ActiveRecord::Schema.define(:version => 20100304200443) do
+
+  create_table "ingredients", :force => true do |t|
+    t.integer  "recipe_id"
+    t.string   "name"
+    t.decimal  "quantity"
+    t.string   "unit_of_measure"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "deleted",         :default => false
+  end
 
   create_table "recipes", :force => true do |t|
     t.string   "title"

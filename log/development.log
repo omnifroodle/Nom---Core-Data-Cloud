@@ -732,3 +732,1761 @@ Processing RecipesController#index to plist (for 192.168.2.37 at 2010-03-03 17:5
   [4;35;1mRecipe Load (0.6ms)[0m   [0mSELECT * FROM "recipes" WHERE (updated_at >= '2010-03-03 17:46:42') [0m
 Rendering recipes/index
 Completed in 10ms (View: 4, DB: 1) | 200 OK [http://192.168.2.37/recipes.plist?last=1267656402]
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateRecipes (20100227201129)
+Migrating to AddDeleteToRecipe (20100301042306)
+Migrating to CreateIngredients (20100304182225)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCREATE TABLE "ingredients" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "recipe_id" integer, "name" varchar(255), "quantity" decimal, "unit_of_measure" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100304182225')[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("ingredients")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("recipes")[0m
+
+
+Processing RecipesController#index (for 127.0.0.1 at 2010-03-04 14:12:25) [GET]
+  [4;36;1mRecipe Load (0.9ms)[0m   [0;1mSELECT * FROM "recipes" [0m
+Rendering template within layouts/application
+Rendering recipes/index
+Completed in 79ms (View: 43, DB: 1) | 200 OK [http://127.0.0.1/recipes]
+
+
+Processing IngredientsController#index (for 127.0.0.1 at 2010-03-04 14:14:48) [GET]
+  [4;35;1mIngredient Load (0.4ms)[0m   [0mSELECT * FROM "ingredients" [0m
+Rendering template within layouts/ingredients
+Rendering ingredients/index
+
+ActionView::TemplateError (undefined local variable or method `new_ingredient_path' for #<ActionView::Base:0x10302d380>) on line #26 of app/views/ingredients/index.html.erb:
+23: 
+24: <br />
+25: 
+26: <%= link_to 'New ingredient', new_ingredient_path %>
+
+    app/views/ingredients/index.html.erb:26
+    app/controllers/ingredients_controller.rb:7:in `index'
+
+Rendered rescues/_trace (59.9ms)
+Rendered rescues/_request_and_response (1.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing RecipesController#show (for 127.0.0.1 at 2010-03-04 14:14:58) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mRecipe Load (0.3ms)[0m   [0;1mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering recipes/show
+Completed in 27ms (View: 19, DB: 0) | 200 OK [http://127.0.0.1/recipes/1]
+
+
+Processing IngredientsController#index (for 127.0.0.1 at 2010-03-04 14:15:04) [GET]
+  Parameters: {"recipe_id"=>"1"}
+  [4;35;1mIngredient Load (0.4ms)[0m   [0mSELECT * FROM "ingredients" [0m
+Rendering template within layouts/ingredients
+Rendering ingredients/index
+
+ActionView::TemplateError (undefined local variable or method `new_ingredient_path' for #<ActionView::Base:0x102f5d108>) on line #26 of app/views/ingredients/index.html.erb:
+23: 
+24: <br />
+25: 
+26: <%= link_to 'New ingredient', new_ingredient_path %>
+
+    app/views/ingredients/index.html.erb:26
+    app/controllers/ingredients_controller.rb:7:in `index'
+
+Rendered rescues/_trace (128.2ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing IngredientsController#index (for 127.0.0.1 at 2010-03-04 14:15:19) [GET]
+  Parameters: {"recipe_id"=>"1"}
+  [4;36;1mIngredient Load (0.4ms)[0m   [0;1mSELECT * FROM "ingredients" [0m
+Rendering template within layouts/ingredients
+Rendering ingredients/index
+Completed in 13ms (View: 8, DB: 0) | 200 OK [http://127.0.0.1/recipes/1/ingredients]
+
+
+Processing IngredientsController#new (for 127.0.0.1 at 2010-03-04 14:15:24) [GET]
+  Parameters: {"recipe_id"=>"1"}
+Rendering template within layouts/ingredients
+Rendering ingredients/new
+
+ActionView::TemplateError (undefined method `ingredients_path' for #<ActionView::Base:0x1030a3918>) on line #1 of app/views/ingredients/_form.html.erb:
+1: <% form_for(@ingredient) do |f| %>
+2:   <%= f.error_messages %>
+3: 
+4:   <p>
+
+    app/views/ingredients/_form.html.erb:1
+    app/views/ingredients/new.html.erb:3
+    app/controllers/ingredients_controller.rb:29:in `new'
+
+Rendered rescues/_trace (140.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing IngredientsController#index (for 127.0.0.1 at 2010-03-04 14:15:54) [GET]
+  Parameters: {"recipe_id"=>"1"}
+  [4;35;1mIngredient Load (0.4ms)[0m   [0mSELECT * FROM "ingredients" [0m
+Rendering template within layouts/ingredients
+Rendering ingredients/index
+Completed in 8ms (View: 2, DB: 0) | 200 OK [http://127.0.0.1/recipes/1/ingredients]
+
+
+Processing IngredientsController#new (for 127.0.0.1 at 2010-03-04 14:15:56) [GET]
+  Parameters: {"recipe_id"=>"1"}
+Rendering template within layouts/ingredients
+Rendering ingredients/new
+
+ActionView::TemplateError (undefined method `ingredients_path' for #<ActionView::Base:0x10303e220>) on line #1 of app/views/ingredients/_form.html.erb:
+1: <% form_for(@ingredient) do |f| %>
+2:   <%= f.error_messages %>
+3: 
+4:   <p>
+
+    app/views/ingredients/_form.html.erb:1
+    app/views/ingredients/new.html.erb:3
+    app/controllers/ingredients_controller.rb:29:in `new'
+
+Rendered rescues/_trace (143.2ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing IngredientsController#new (for 127.0.0.1 at 2010-03-04 14:16:09) [GET]
+  Parameters: {"recipe_id"=>"1"}
+Rendering template within layouts/ingredients
+Rendering ingredients/new
+
+ActionView::TemplateError (Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id) on line #1 of app/views/ingredients/_form.html.erb:
+1: <% form_for(@recipe, @ingredient) do |f| %>
+2:   <%= f.error_messages %>
+3: 
+4:   <p>
+
+    app/views/ingredients/_form.html.erb:1
+    app/views/ingredients/new.html.erb:3
+    app/controllers/ingredients_controller.rb:29:in `new'
+
+Rendered rescues/_trace (146.5ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing IngredientsController#new (for 127.0.0.1 at 2010-03-04 14:17:36) [GET]
+  Parameters: {"recipe_id"=>"1"}
+Rendering template within layouts/ingredients
+Rendering ingredients/new
+Rendered ingredients/_form (5.0ms)
+Completed in 14ms (View: 7, DB: 0) | 200 OK [http://127.0.0.1/recipes/1/ingredients/new]
+
+
+Processing IngredientsController#new (for 127.0.0.1 at 2010-03-04 14:20:06) [GET]
+  Parameters: {"recipe_id"=>"1"}
+
+NoMethodError (undefined method `build_ingredient' for "1":String):
+  app/controllers/ingredients_controller.rb:33:in `new'
+
+Rendered rescues/_trace (42.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing IngredientsController#new (for 127.0.0.1 at 2010-03-04 14:20:07) [GET]
+  Parameters: {"recipe_id"=>"1"}
+
+NoMethodError (undefined method `build_ingredient' for "1":String):
+  app/controllers/ingredients_controller.rb:33:in `new'
+
+Rendered rescues/_trace (114.8ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing IngredientsController#new (for 127.0.0.1 at 2010-03-04 14:20:30) [GET]
+  Parameters: {"recipe_id"=>"1"}
+  [4;36;1mRecipe Load (0.3ms)[0m   [0;1mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+
+NoMethodError (undefined method `build_ingredient' for #<Recipe:0x1033e47f8>):
+  app/controllers/ingredients_controller.rb:33:in `new'
+
+Rendered rescues/_trace (42.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing IngredientsController#new (for 127.0.0.1 at 2010-03-04 14:21:05) [GET]
+  Parameters: {"recipe_id"=>"1"}
+  [4;35;1mRecipe Load (0.4ms)[0m   [0mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+NoMethodError (undefined method `build_ingredient' for #<Class:0x102f8fd38>):
+  app/controllers/ingredients_controller.rb:33:in `new'
+
+Rendered rescues/_trace (122.0ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing IngredientsController#new (for 127.0.0.1 at 2010-03-04 14:21:14) [GET]
+  Parameters: {"recipe_id"=>"1"}
+  [4;35;1mRecipe Load (0.4ms)[0m   [0mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/ingredients
+Rendering ingredients/new
+
+ActionView::TemplateError (undefined method `recipe_id' for #<Recipe:0x10346a010>) on line #6 of app/views/ingredients/_form.html.erb:
+3: 
+4:   <p>
+5:     <%= f.label :recipe_id %><br />
+6:     <%= f.text_field :recipe_id %>
+7:   </p>
+8:   <p>
+9:     <%= f.label :name %><br />
+
+    app/views/ingredients/_form.html.erb:6
+    app/views/ingredients/_form.html.erb:1
+    app/views/ingredients/new.html.erb:3
+    app/controllers/ingredients_controller.rb:35:in `new'
+
+Rendered rescues/_trace (75.9ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing IngredientsController#new (for 127.0.0.1 at 2010-03-04 14:21:32) [GET]
+  Parameters: {"recipe_id"=>"1"}
+  [4;36;1mRecipe Load (0.3ms)[0m   [0;1mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/ingredients
+Rendering ingredients/new
+
+ActionView::TemplateError (undefined method `recipe_id' for #<Recipe:0x1035ff6a0>) on line #6 of app/views/ingredients/_form.html.erb:
+3: 
+4:   <p>
+5:     <%= f.label :recipe_id %><br />
+6:     <%= f.hidden_field :recipe_id %>
+7:   </p>
+8:   <p>
+9:     <%= f.label :name %><br />
+
+    app/views/ingredients/_form.html.erb:6
+    app/views/ingredients/_form.html.erb:1
+    app/views/ingredients/new.html.erb:3
+    app/controllers/ingredients_controller.rb:35:in `new'
+
+Rendered rescues/_trace (72.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing IngredientsController#new (for 127.0.0.1 at 2010-03-04 14:21:38) [GET]
+  Parameters: {"recipe_id"=>"1"}
+  [4;35;1mRecipe Load (0.3ms)[0m   [0mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/ingredients
+Rendering ingredients/new
+
+ActionView::TemplateError (undefined method `name' for #<Recipe:0x102e8af00>) on line #6 of app/views/ingredients/_form.html.erb:
+3: 
+4:   <p>
+5:     <%= f.label :name %><br />
+6:     <%= f.text_field :name %>
+7:   </p>
+8:   <p>
+9:     <%= f.label :quantity %><br />
+
+    app/views/ingredients/_form.html.erb:6
+    app/views/ingredients/_form.html.erb:1
+    app/views/ingredients/new.html.erb:3
+    app/controllers/ingredients_controller.rb:35:in `new'
+
+Rendered rescues/_trace (79.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing IngredientsController#new (for 127.0.0.1 at 2010-03-04 14:21:51) [GET]
+  Parameters: {"recipe_id"=>"1"}
+  [4;36;1mRecipe Load (0.3ms)[0m   [0;1mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/ingredients
+Rendering ingredients/new
+
+ActionView::TemplateError (undefined method `recipe_id' for #<Recipe:0x102ed92b8>) on line #6 of app/views/ingredients/_form.html.erb:
+3: 
+4:   <p>
+5:     <%= f.label :recipe_id %><br />
+6:     <%= f.text_field :recipe_id %>
+7:   </p>
+8:   <p>
+9:     <%= f.label :name %><br />
+
+    app/views/ingredients/_form.html.erb:6
+    app/views/ingredients/_form.html.erb:1
+    app/views/ingredients/new.html.erb:3
+    app/controllers/ingredients_controller.rb:35:in `new'
+
+Rendered rescues/_trace (76.7ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing IngredientsController#new (for 127.0.0.1 at 2010-03-04 14:23:04) [GET]
+  Parameters: {"recipe_id"=>"1"}
+  [4;35;1mRecipe Load (0.3ms)[0m   [0mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/ingredients
+Rendering ingredients/new
+
+ActionView::TemplateError (undefined method `recipe_id' for #<Recipe:0x102f10f10>) on line #6 of app/views/ingredients/_form.html.erb:
+3: 
+4:   <p>
+5:     <%= f.label :recipe_id %><br />
+6:     <%= f.text_field :recipe_id %>
+7:   </p>
+8:   <p>
+9:     <%= f.label :name %><br />
+
+    app/views/ingredients/_form.html.erb:6
+    app/views/ingredients/_form.html.erb:1
+    app/views/ingredients/new.html.erb:3
+    app/controllers/ingredients_controller.rb:36:in `new'
+
+Rendered rescues/_trace (75.3ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing IngredientsController#new (for 127.0.0.1 at 2010-03-04 14:23:07) [GET]
+  Parameters: {"recipe_id"=>"1"}
+  [4;36;1mRecipe Load (0.3ms)[0m   [0;1mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/ingredients
+Rendering ingredients/new
+
+ActionView::TemplateError (undefined method `recipe_id' for #<Recipe:0x10301bba8>) on line #6 of app/views/ingredients/_form.html.erb:
+3: 
+4:   <p>
+5:     <%= f.label :recipe_id %><br />
+6:     <%= f.text_field :recipe_id %>
+7:   </p>
+8:   <p>
+9:     <%= f.label :name %><br />
+
+    app/views/ingredients/_form.html.erb:6
+    app/views/ingredients/_form.html.erb:1
+    app/views/ingredients/new.html.erb:3
+    app/controllers/ingredients_controller.rb:36:in `new'
+
+Rendered rescues/_trace (147.5ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing IngredientsController#new (for 127.0.0.1 at 2010-03-04 14:23:18) [GET]
+  Parameters: {"recipe_id"=>"1"}
+  [4;35;1mRecipe Load (0.3ms)[0m   [0mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/ingredients
+Rendering ingredients/new
+
+ActionView::TemplateError (undefined method `recipe_id' for #<Recipe:0x1031177f0>) on line #6 of app/views/ingredients/_form.html.erb:
+3: 
+4:   <p>
+5:     <%= f.label :recipe_id %><br />
+6:     <%= f.text_field :recipe_id %>
+7:   </p>
+8:   <p>
+9:     <%= f.label :name %><br />
+
+    app/views/ingredients/_form.html.erb:6
+    app/views/ingredients/_form.html.erb:1
+    app/views/ingredients/new.html.erb:3
+    app/controllers/ingredients_controller.rb:35:in `new'
+
+Rendered rescues/_trace (149.0ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing IngredientsController#new (for 127.0.0.1 at 2010-03-04 14:23:19) [GET]
+  Parameters: {"recipe_id"=>"1"}
+  [4;36;1mRecipe Load (0.3ms)[0m   [0;1mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/ingredients
+Rendering ingredients/new
+
+ActionView::TemplateError (undefined method `recipe_id' for #<Recipe:0x10335b4a8>) on line #6 of app/views/ingredients/_form.html.erb:
+3: 
+4:   <p>
+5:     <%= f.label :recipe_id %><br />
+6:     <%= f.text_field :recipe_id %>
+7:   </p>
+8:   <p>
+9:     <%= f.label :name %><br />
+
+    app/views/ingredients/_form.html.erb:6
+    app/views/ingredients/_form.html.erb:1
+    app/views/ingredients/new.html.erb:3
+    app/controllers/ingredients_controller.rb:35:in `new'
+
+Rendered rescues/_trace (148.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing IngredientsController#new (for 127.0.0.1 at 2010-03-04 14:23:49) [GET]
+  Parameters: {"recipe_id"=>"1"}
+  [4;35;1mRecipe Load (0.3ms)[0m   [0mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/ingredients
+Rendering ingredients/new
+
+ActionView::TemplateError (undefined method `name' for #<Recipe:0x10351a3c0>) on line #6 of app/views/ingredients/_form.html.erb:
+3: 
+4:   <p>
+5:     <%= f.label :name %><br />
+6:     <%= f.text_field :name %>
+7:   </p>
+8:   <p>
+9:     <%= f.label :quantity %><br />
+
+    app/views/ingredients/_form.html.erb:6
+    app/views/ingredients/_form.html.erb:1
+    app/views/ingredients/new.html.erb:3
+    app/controllers/ingredients_controller.rb:35:in `new'
+
+Rendered rescues/_trace (83.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing IngredientsController#new (for 127.0.0.1 at 2010-03-04 14:24:07) [GET]
+  Parameters: {"recipe_id"=>"1"}
+  [4;36;1mRecipe Load (0.3ms)[0m   [0;1mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/ingredients
+Rendering ingredients/new
+
+ActionView::TemplateError (undefined method `name' for #<Recipe:0x103606298>) on line #6 of app/views/ingredients/_form.html.erb:
+3: 
+4:   <p>
+5:     <%= f.label :name %><br />
+6:     <%= f.text_field :name %>
+7:   </p>
+8:   <p>
+9:     <%= f.label :quantity %><br />
+
+    app/views/ingredients/_form.html.erb:6
+    app/views/ingredients/_form.html.erb:1
+    app/views/ingredients/new.html.erb:3
+    app/controllers/ingredients_controller.rb:35:in `new'
+
+Rendered rescues/_trace (75.3ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing IngredientsController#new (for 127.0.0.1 at 2010-03-04 14:25:12) [GET]
+  Parameters: {"recipe_id"=>"1"}
+  [4;35;1mRecipe Load (0.3ms)[0m   [0mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/ingredients
+Rendering ingredients/new
+
+ActionView::TemplateError (undefined method `recipe_id' for #<Recipe:0x102e972c8>) on line #6 of app/views/ingredients/_form.html.erb:
+3: 
+4: 	<p>
+5:     <%= f.label :recipe_id %><br />
+6:     <%= f.text_field :recipe_id %>
+7:   </p>
+8: 
+9:   <p>
+
+    app/views/ingredients/_form.html.erb:6
+    app/views/ingredients/_form.html.erb:1
+    app/views/ingredients/new.html.erb:3
+    app/controllers/ingredients_controller.rb:35:in `new'
+
+Rendered rescues/_trace (81.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing IngredientsController#new (for 127.0.0.1 at 2010-03-04 14:25:51) [GET]
+  Parameters: {"recipe_id"=>"1"}
+  [4;36;1mRecipe Load (0.3ms)[0m   [0;1mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/ingredients
+Rendering ingredients/new
+
+ActionView::TemplateError (undefined method `recipe_id' for #<Recipe:0x102ef7e48>) on line #6 of app/views/ingredients/_form.html.erb:
+3: 
+4: 	<p>
+5:     <%= f.label :recipe_id %><br />
+6:     <%= f.text_field :recipe_id %>
+7:   </p>
+8: 
+9:   <p>
+
+    app/views/ingredients/_form.html.erb:6
+    app/views/ingredients/_form.html.erb:1
+    app/views/ingredients/new.html.erb:3
+    app/controllers/ingredients_controller.rb:35:in `new'
+
+Rendered rescues/_trace (74.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing IngredientsController#new (for 127.0.0.1 at 2010-03-04 14:26:07) [GET]
+  Parameters: {"recipe_id"=>"1"}
+  [4;35;1mRecipe Load (0.3ms)[0m   [0mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/ingredients
+Rendering ingredients/new
+
+ActionView::TemplateError (undefined method `recipe_id' for #<Recipe:0x102fc1f68>) on line #6 of app/views/ingredients/_form.html.erb:
+3: 
+4: 	<p>
+5:     <%= f.label :recipe_id %><br />
+6:     <%= f.text_field :recipe_id %>
+7:   </p>
+8: 
+9:   <p>
+
+    app/views/ingredients/_form.html.erb:6
+    app/views/ingredients/_form.html.erb:1
+    app/views/ingredients/new.html.erb:3
+    app/controllers/ingredients_controller.rb:35:in `new'
+
+Rendered rescues/_trace (154.2ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing IngredientsController#index (for 127.0.0.1 at 2010-03-04 14:26:16) [GET]
+  Parameters: {"recipe_id"=>"1"}
+  [4;36;1mRecipe Load (0.3ms)[0m   [0;1mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+  [4;35;1mIngredient Load (0.2ms)[0m   [0mSELECT * FROM "ingredients" [0m
+Rendering template within layouts/ingredients
+Rendering ingredients/index
+Completed in 13ms (View: 2, DB: 0) | 200 OK [http://127.0.0.1/recipes/1/ingredients]
+
+
+Processing IngredientsController#new (for 127.0.0.1 at 2010-03-04 14:26:18) [GET]
+  Parameters: {"recipe_id"=>"1"}
+  [4;36;1mRecipe Load (0.3ms)[0m   [0;1mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/ingredients
+Rendering ingredients/new
+
+ActionView::TemplateError (undefined method `recipe_id' for #<Recipe:0x103001460>) on line #6 of app/views/ingredients/_form.html.erb:
+3: 
+4: 	<p>
+5:     <%= f.label :recipe_id %><br />
+6:     <%= f.text_field :recipe_id %>
+7:   </p>
+8: 
+9:   <p>
+
+    app/views/ingredients/_form.html.erb:6
+    app/views/ingredients/_form.html.erb:1
+    app/views/ingredients/new.html.erb:3
+    app/controllers/ingredients_controller.rb:35:in `new'
+
+Rendered rescues/_trace (145.5ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing IngredientsController#new (for 127.0.0.1 at 2010-03-04 14:26:34) [GET]
+  Parameters: {"recipe_id"=>"1"}
+  [4;36;1mRecipe Load (0.3ms)[0m   [0;1mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/ingredients
+Rendering ingredients/new
+
+ActionView::TemplateError (undefined method `recipe_id' for #<Recipe:0x103345ce8>) on line #6 of app/views/ingredients/_form.html.erb:
+3: 
+4: 	<p>
+5:     <%= f.label :recipe_id %><br />
+6:     <%= f.text_field :recipe_id %>
+7:   </p>
+8: 
+9:   <p>
+
+    app/views/ingredients/_form.html.erb:6
+    app/views/ingredients/_form.html.erb:1
+    app/views/ingredients/new.html.erb:3
+    app/controllers/ingredients_controller.rb:35:in `new'
+
+Rendered rescues/_trace (139.8ms)
+Rendered rescues/_request_and_response (1.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateRecipes (20100227201129)
+Migrating to AddDeleteToRecipe (20100301042306)
+Migrating to CreateIngredients (20100304190922)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSQLite3::SQLException: table "ingredients" already exists: CREATE TABLE "ingredients" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "recipe_id" integer, "name" varchar(255), "quantity" decimal, "unit_of_measure" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.2ms)[0m   [0;1mCREATE TABLE "ingredients" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "recipe_id" integer, "name" varchar(255), "quantity" decimal, "unit_of_measure" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.9ms)[0m   [0;1mCREATE TABLE "recipes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "desc" text, "course" varchar(255), "serves" integer, "created_at" datetime, "updated_at" datetime, "deleted" boolean DEFAULT 'f') [0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (12.1ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (2.5ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100304182225')[0m
+  [4;35;1mSQL (2.5ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100227201129')[0m
+  [4;36;1mSQL (2.3ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100301042306')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateRecipes (20100227201129)
+Migrating to AddDeleteToRecipe (20100301042306)
+Migrating to CreateIngredients (20100304190922)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSQLite3::SQLException: table "ingredients" already exists: CREATE TABLE "ingredients" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "recipe_id" integer, "name" varchar(255), "quantity" decimal, "unit_of_measure" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (3.5ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (2.0ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateRecipes (20100227201129)
+  [4;36;1mSQL (1.1ms)[0m   [0;1mCREATE TABLE "recipes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "desc" text, "course" varchar(255), "serves" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100227201129')[0m
+Migrating to AddDeleteToRecipe (20100301042306)
+  [4;36;1mSQL (0.8ms)[0m   [0;1mALTER TABLE "recipes" ADD "deleted" boolean DEFAULT 'f'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100301042306')[0m
+Migrating to CreateIngredients (20100304190922)
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCREATE TABLE "ingredients" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "recipe_id" integer, "name" varchar(255), "quantity" decimal, "unit_of_measure" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100304190922')[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("ingredients")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("recipes")[0m
+
+
+Processing IngredientsController#new (for 127.0.0.1 at 2010-03-04 14:27:46) [GET]
+  Parameters: {"recipe_id"=>"1"}
+  [4;36;1mRecipe Load (0.2ms)[0m   [0;1mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Recipe with ID=1):
+  app/controllers/ingredients_controller.rb:5:in `load_recipe'
+
+Rendered rescues/_trace (49.7ms)
+Rendered rescues/_request_and_response (1.4ms)
+Rendering rescues/layout (not_found)
+
+
+Processing IngredientsController#new (for 127.0.0.1 at 2010-03-04 14:27:48) [GET]
+  Parameters: {"recipe_id"=>"1"}
+  [4;35;1mRecipe Load (0.2ms)[0m   [0mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Recipe with ID=1):
+  app/controllers/ingredients_controller.rb:5:in `load_recipe'
+
+Rendered rescues/_trace (117.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (not_found)
+
+
+Processing RecipesController#index (for 127.0.0.1 at 2010-03-04 14:27:50) [GET]
+  [4;36;1mRecipe Load (0.4ms)[0m   [0;1mSELECT * FROM "recipes" [0m
+Rendering template within layouts/application
+Rendering recipes/index
+Completed in 31ms (View: 24, DB: 0) | 200 OK [http://127.0.0.1/recipes/]
+
+
+Processing RecipesController#new (for 127.0.0.1 at 2010-03-04 14:27:52) [GET]
+Rendering template within layouts/application
+Rendering recipes/new
+Rendered recipes/_form (13.2ms)
+Completed in 48ms (View: 42, DB: 0) | 200 OK [http://127.0.0.1/recipes/new]
+
+
+Processing RecipesController#create (for 127.0.0.1 at 2010-03-04 14:29:37) [POST]
+  Parameters: {"commit"=>"Create Recipe", "authenticity_token"=>"vl+zBSKlo8wRQF20Z7J9dsVuG22R2Rc103J0rIvBN6I=", "recipe"=>{"course"=>"Appetizer", "title"=>"Little Smokies", "deleted"=>"0", "serves"=>"4", "desc"=>"1 Bottle of Kraft Honey Barbecue Sauce\r\n1 Package Hillshire Farms Little Smokies\r\n1 Box of Velveeta Cheese\r\n\r\nToss all three ingredients into a Crock Pot and cook to perfection\r\n"}}
+  [4;35;1mRecipe Create (0.5ms)[0m   [0mINSERT INTO "recipes" ("course", "created_at", "title", "updated_at", "deleted", "serves", "desc") VALUES('Appetizer', '2010-03-04 19:29:37', 'Little Smokies', '2010-03-04 19:29:37', 'f', 4, '1 Bottle of Kraft Honey Barbecue Sauce
+1 Package Hillshire Farms Little Smokies
+1 Box of Velveeta Cheese
+
+Toss all three ingredients into a Crock Pot and cook to perfection
+')[0m
+Redirected to http://127.0.0.1:3000/recipes/1
+Completed in 18ms (DB: 0) | 302 Found [http://127.0.0.1/recipes]
+
+
+Processing RecipesController#show (for 127.0.0.1 at 2010-03-04 14:29:37) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mRecipe Load (0.3ms)[0m   [0;1mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering recipes/show
+Completed in 16ms (View: 8, DB: 0) | 200 OK [http://127.0.0.1/recipes/1]
+
+
+Processing IngredientsController#index (for 127.0.0.1 at 2010-03-04 14:29:43) [GET]
+  Parameters: {"recipe_id"=>"1"}
+  [4;35;1mRecipe Load (0.3ms)[0m   [0mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+  [4;36;1mIngredient Load (0.2ms)[0m   [0;1mSELECT * FROM "ingredients" [0m
+Rendering template within layouts/ingredients
+Rendering ingredients/index
+Completed in 25ms (View: 13, DB: 0) | 200 OK [http://127.0.0.1/recipes/1/ingredients]
+
+
+Processing IngredientsController#new (for 127.0.0.1 at 2010-03-04 14:29:49) [GET]
+  Parameters: {"recipe_id"=>"1"}
+  [4;35;1mRecipe Load (0.3ms)[0m   [0mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/ingredients
+Rendering ingredients/new
+
+ActionView::TemplateError (undefined method `recipe_id' for #<Recipe:0x103182af0>) on line #6 of app/views/ingredients/_form.html.erb:
+3: 
+4: 	<p>
+5:     <%= f.label :recipe_id %><br />
+6:     <%= f.text_field :recipe_id %>
+7:   </p>
+8: 
+9:   <p>
+
+    app/views/ingredients/_form.html.erb:6
+    app/views/ingredients/_form.html.erb:1
+    app/views/ingredients/new.html.erb:3
+    app/controllers/ingredients_controller.rb:35:in `new'
+
+Rendered rescues/_trace (146.0ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing IngredientsController#new (for 127.0.0.1 at 2010-03-04 14:30:12) [GET]
+  Parameters: {"recipe_id"=>"1"}
+  [4;36;1mRecipe Load (0.3ms)[0m   [0;1mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/ingredients
+Rendering ingredients/new
+
+ActionView::TemplateError (undefined method `recipe_id' for #<Recipe:0x103120f30>) on line #6 of app/views/ingredients/_form.html.erb:
+3: 
+4: 	<p>
+5:     <%= f.label :recipe_id %><br />
+6:     <%= f.text_field :recipe_id %>
+7:   </p>
+8: 
+9:   <p>
+
+    app/views/ingredients/_form.html.erb:6
+    app/views/ingredients/_form.html.erb:1
+    app/views/ingredients/new.html.erb:3
+    app/controllers/ingredients_controller.rb:35:in `new'
+
+Rendered rescues/_trace (156.4ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing IngredientsController#new (for 127.0.0.1 at 2010-03-04 14:30:30) [GET]
+  Parameters: {"recipe_id"=>"1"}
+  [4;35;1mRecipe Load (0.3ms)[0m   [0mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/ingredients
+Rendering ingredients/new
+
+ActionView::TemplateError (undefined method `name' for #<Recipe:0x10335aff8>) on line #6 of app/views/ingredients/_form.html.erb:
+3: 
+4:   <p>
+5:     <%= f.label :name %><br />
+6:     <%= f.text_field :name %>
+7:   </p>
+8:   <p>
+9:     <%= f.label :quantity %><br />
+
+    app/views/ingredients/_form.html.erb:6
+    app/views/ingredients/_form.html.erb:1
+    app/views/ingredients/new.html.erb:3
+    app/controllers/ingredients_controller.rb:35:in `new'
+
+Rendered rescues/_trace (149.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing IngredientsController#new (for 127.0.0.1 at 2010-03-04 14:30:57) [GET]
+  Parameters: {"recipe_id"=>"1"}
+  [4;36;1mRecipe Load (0.3ms)[0m   [0;1mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/ingredients
+Rendering ingredients/new
+
+ActionView::TemplateError (undefined method `recipe_id' for #<Recipe:0x1034eb958>) on line #6 of app/views/ingredients/_form.html.erb:
+3: 
+4: 	<p>
+5:     <%= f.label :recipe_id %><br />
+6:     <%= f.text_field :recipe_id %>
+7:   </p>
+8:   <p>
+9:     <%= f.label :name %><br />
+
+    app/views/ingredients/_form.html.erb:6
+    app/views/ingredients/_form.html.erb:1
+    app/views/ingredients/new.html.erb:3
+    app/controllers/ingredients_controller.rb:35:in `new'
+
+Rendered rescues/_trace (73.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing IngredientsController#new (for 127.0.0.1 at 2010-03-04 14:30:58) [GET]
+  Parameters: {"recipe_id"=>"1"}
+  [4;35;1mRecipe Load (0.3ms)[0m   [0mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/ingredients
+Rendering ingredients/new
+
+ActionView::TemplateError (undefined method `recipe_id' for #<Recipe:0x1035c7160>) on line #6 of app/views/ingredients/_form.html.erb:
+3: 
+4: 	<p>
+5:     <%= f.label :recipe_id %><br />
+6:     <%= f.text_field :recipe_id %>
+7:   </p>
+8:   <p>
+9:     <%= f.label :name %><br />
+
+    app/views/ingredients/_form.html.erb:6
+    app/views/ingredients/_form.html.erb:1
+    app/views/ingredients/new.html.erb:3
+    app/controllers/ingredients_controller.rb:35:in `new'
+
+Rendered rescues/_trace (74.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing IngredientsController#new (for 127.0.0.1 at 2010-03-04 14:32:15) [GET]
+  Parameters: {"recipe_id"=>"1"}
+  [4;36;1mRecipe Load (0.4ms)[0m   [0;1mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/ingredients
+Rendering ingredients/new
+
+ActionView::TemplateError (undefined method `ingredients_path' for #<ActionView::Base:0x1033c77e8>) on line #1 of app/views/ingredients/_form.html.erb:
+1: <% form_for(@ingredient) do |f| %>
+2:   <%= f.error_messages %>
+3: 
+4: 	<p>
+
+    app/views/ingredients/_form.html.erb:1
+    app/views/ingredients/new.html.erb:3
+    app/controllers/ingredients_controller.rb:35:in `new'
+
+Rendered rescues/_trace (138.5ms)
+Rendered rescues/_request_and_response (1.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing IngredientsController#new (for 127.0.0.1 at 2010-03-04 14:33:01) [GET]
+  Parameters: {"recipe_id"=>"1"}
+  [4;35;1mRecipe Load (0.3ms)[0m   [0mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/ingredients
+Rendering ingredients/new
+
+ActionView::TemplateError (undefined method `recipe_id' for #<Recipe:0x10327b718>) on line #6 of app/views/ingredients/_form.html.erb:
+3: 
+4: 	<p>
+5:     <%= f.label :recipe_id %><br />
+6:     <%= f.text_field :recipe_id %>
+7:   </p>
+8:   <p>
+9:     <%= f.label :name %><br />
+
+    app/views/ingredients/_form.html.erb:6
+    app/views/ingredients/_form.html.erb:1
+    app/views/ingredients/new.html.erb:3
+    app/controllers/ingredients_controller.rb:35:in `new'
+
+Rendered rescues/_trace (146.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing IngredientsController#new (for 127.0.0.1 at 2010-03-04 14:33:36) [GET]
+  Parameters: {"recipe_id"=>"1"}
+  [4;36;1mRecipe Load (0.3ms)[0m   [0;1mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/ingredients
+Rendering ingredients/new
+Rendered ingredients/_form (7.1ms)
+Completed in 25ms (View: 13, DB: 0) | 200 OK [http://127.0.0.1/recipes/1/ingredients/new]
+
+
+Processing RecipesController#index (for 127.0.0.1 at 2010-03-04 14:34:33) [GET]
+  [4;35;1mRecipe Load (0.6ms)[0m   [0mSELECT * FROM "recipes" [0m
+Rendering template within layouts/application
+Rendering recipes/index
+Completed in 29ms (View: 20, DB: 1) | 200 OK [http://127.0.0.1/recipes/]
+
+
+Processing RecipesController#show (for 127.0.0.1 at 2010-03-04 14:34:36) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mRecipe Load (0.3ms)[0m   [0;1mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering recipes/show
+Completed in 15ms (View: 7, DB: 0) | 200 OK [http://127.0.0.1/recipes/1]
+
+
+Processing IngredientsController#index (for 127.0.0.1 at 2010-03-04 14:34:44) [GET]
+  Parameters: {"recipe_id"=>"1"}
+  [4;35;1mRecipe Load (0.3ms)[0m   [0mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+  [4;36;1mIngredient Load (0.2ms)[0m   [0;1mSELECT * FROM "ingredients" [0m
+Rendering template within layouts/ingredients
+Rendering ingredients/index
+Completed in 18ms (View: 6, DB: 1) | 200 OK [http://127.0.0.1/recipes/1/ingredients]
+
+
+Processing IngredientsController#new (for 127.0.0.1 at 2010-03-04 14:34:46) [GET]
+  Parameters: {"recipe_id"=>"1"}
+  [4;35;1mRecipe Load (0.3ms)[0m   [0mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/ingredients
+Rendering ingredients/new
+Rendered ingredients/_form (6.4ms)
+Completed in 20ms (View: 8, DB: 0) | 200 OK [http://127.0.0.1/recipes/1/ingredients/new]
+
+
+Processing IngredientsController#new (for 127.0.0.1 at 2010-03-04 14:35:05) [GET]
+  Parameters: {"recipe_id"=>"1"}
+  [4;36;1mRecipe Load (0.3ms)[0m   [0;1mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/ingredients
+Rendering ingredients/new
+Rendered ingredients/_form (7.1ms)
+Completed in 24ms (View: 12, DB: 0) | 200 OK [http://127.0.0.1/recipes/1/ingredients/new]
+
+
+Processing IngredientsController#new (for 127.0.0.1 at 2010-03-04 14:35:30) [GET]
+  Parameters: {"recipe_id"=>"1"}
+  [4;35;1mRecipe Load (0.3ms)[0m   [0mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/ingredients
+Rendering ingredients/new
+
+ActionView::TemplateError (undefined method `merge' for 1:Fixnum) on line #6 of app/views/ingredients/_form.html.erb:
+3: 
+4: 	<p>
+5:     <%= f.label :recipe_id %><br />
+6:     <%= f.hidden_field :recipe_id, @recipe.id %>
+7:   </p>
+8:   <p>
+9:     <%= f.label :name %><br />
+
+    app/views/ingredients/_form.html.erb:6
+    app/views/ingredients/_form.html.erb:1
+    app/views/ingredients/new.html.erb:3
+    app/controllers/ingredients_controller.rb:35:in `new'
+
+Rendered rescues/_trace (73.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing IngredientsController#new (for 127.0.0.1 at 2010-03-04 14:35:41) [GET]
+  Parameters: {"recipe_id"=>"1"}
+  [4;36;1mRecipe Load (0.3ms)[0m   [0;1mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/ingredients
+Rendering ingredients/new
+
+ActionView::TemplateError (undefined method `merge' for #<Recipe:0x102fe6160>) on line #6 of app/views/ingredients/_form.html.erb:
+3: 
+4: 	<p>
+5:     <%= f.label :recipe_id %><br />
+6:     <%= f.hidden_field :recipe_id, @recipe %>
+7:   </p>
+8:   <p>
+9:     <%= f.label :name %><br />
+
+    app/views/ingredients/_form.html.erb:6
+    app/views/ingredients/_form.html.erb:1
+    app/views/ingredients/new.html.erb:3
+    app/controllers/ingredients_controller.rb:35:in `new'
+
+Rendered rescues/_trace (149.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing IngredientsController#new (for 127.0.0.1 at 2010-03-04 14:35:49) [GET]
+  Parameters: {"recipe_id"=>"1"}
+  [4;35;1mRecipe Load (0.3ms)[0m   [0mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/ingredients
+Rendering ingredients/new
+Rendered ingredients/_form (8.1ms)
+Completed in 26ms (View: 14, DB: 0) | 200 OK [http://127.0.0.1/recipes/1/ingredients/new]
+
+
+Processing IngredientsController#new (for 127.0.0.1 at 2010-03-04 14:35:56) [GET]
+  Parameters: {"recipe_id"=>"1"}
+  [4;36;1mRecipe Load (0.4ms)[0m   [0;1mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/ingredients
+Rendering ingredients/new
+Rendered ingredients/_form (6.7ms)
+Completed in 25ms (View: 12, DB: 0) | 200 OK [http://127.0.0.1/recipes/1/ingredients/new]
+
+
+Processing IngredientsController#index (for 127.0.0.1 at 2010-03-04 14:36:02) [GET]
+  Parameters: {"recipe_id"=>"1"}
+  [4;35;1mRecipe Load (0.4ms)[0m   [0mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+  [4;36;1mIngredient Load (0.2ms)[0m   [0;1mSELECT * FROM "ingredients" [0m
+Rendering template within layouts/ingredients
+Rendering ingredients/index
+Completed in 85ms (View: 2, DB: 1) | 200 OK [http://127.0.0.1/recipes/1/ingredients]
+
+
+Processing IngredientsController#new (for 127.0.0.1 at 2010-03-04 14:36:03) [GET]
+  Parameters: {"recipe_id"=>"1"}
+  [4;35;1mRecipe Load (0.3ms)[0m   [0mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/ingredients
+Rendering ingredients/new
+Rendered ingredients/_form (5.9ms)
+Completed in 20ms (View: 8, DB: 0) | 200 OK [http://127.0.0.1/recipes/1/ingredients/new]
+
+
+Processing IngredientsController#new (for 127.0.0.1 at 2010-03-04 14:36:38) [GET]
+  Parameters: {"recipe_id"=>"1"}
+  [4;36;1mRecipe Load (0.3ms)[0m   [0;1mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering ingredients/new
+Rendered ingredients/_form (5.6ms)
+Completed in 22ms (View: 9, DB: 0) | 200 OK [http://127.0.0.1/recipes/1/ingredients/new]
+
+
+Processing IngredientsController#create (for 127.0.0.1 at 2010-03-04 14:38:05) [POST]
+  Parameters: {"commit"=>"Save", "recipe_id"=>"1", "authenticity_token"=>"vl+zBSKlo8wRQF20Z7J9dsVuG22R2Rc103J0rIvBN6I=", "ingredient"=>{"name"=>"test", "quantity"=>"2", "unit_of_measure"=>"cups"}}
+  [4;35;1mRecipe Load (0.3ms)[0m   [0mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+
+NoMethodError (undefined method `new' for nil:NilClass):
+  app/controllers/ingredients_controller.rb:49:in `create'
+
+Rendered rescues/_trace (43.1ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing IngredientsController#create (for 127.0.0.1 at 2010-03-04 14:38:27) [POST]
+  Parameters: {"commit"=>"Save", "recipe_id"=>"1", "authenticity_token"=>"vl+zBSKlo8wRQF20Z7J9dsVuG22R2Rc103J0rIvBN6I=", "ingredient"=>{"name"=>"test", "quantity"=>"2", "unit_of_measure"=>"cups"}}
+  [4;36;1mRecipe Load (0.4ms)[0m   [0;1mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+  [4;35;1mIngredient Create (0.5ms)[0m   [0mINSERT INTO "ingredients" ("name", "created_at", "quantity", "recipe_id", "updated_at", "unit_of_measure") VALUES('test', '2010-03-04 19:38:27', 2.0, NULL, '2010-03-04 19:38:27', 'cups')[0m
+
+NoMethodError (undefined method `ingredient_url' for #<IngredientsController:0x10364fdd0>):
+  app/controllers/ingredients_controller.rb:54:in `create'
+  app/controllers/ingredients_controller.rb:51:in `create'
+
+Rendered rescues/_trace (49.8ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing IngredientsController#create (for 127.0.0.1 at 2010-03-04 14:39:47) [POST]
+  Parameters: {"commit"=>"Save", "recipe_id"=>"1", "authenticity_token"=>"vl+zBSKlo8wRQF20Z7J9dsVuG22R2Rc103J0rIvBN6I=", "ingredient"=>{"name"=>"test", "quantity"=>"2", "unit_of_measure"=>"cups"}}
+  [4;36;1mRecipe Load (0.3ms)[0m   [0;1mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+
+NoMethodError (undefined method `build_ingredient' for #<Recipe:0x10305cf40>):
+  app/controllers/ingredients_controller.rb:50:in `create'
+
+Rendered rescues/_trace (42.7ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing IngredientsController#create (for 127.0.0.1 at 2010-03-04 14:40:00) [POST]
+  Parameters: {"commit"=>"Save", "recipe_id"=>"1", "authenticity_token"=>"vl+zBSKlo8wRQF20Z7J9dsVuG22R2Rc103J0rIvBN6I=", "ingredient"=>{"name"=>"test", "quantity"=>"2", "unit_of_measure"=>"cups"}}
+  [4;35;1mRecipe Load (0.3ms)[0m   [0mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+NoMethodError (undefined method `build_ingredient' for #<Class:0x1035ad260>):
+  app/controllers/ingredients_controller.rb:50:in `create'
+
+Rendered rescues/_trace (46.7ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing IngredientsController#create (for 127.0.0.1 at 2010-03-04 14:46:26) [POST]
+  Parameters: {"commit"=>"Save", "recipe_id"=>"1", "authenticity_token"=>"vl+zBSKlo8wRQF20Z7J9dsVuG22R2Rc103J0rIvBN6I=", "ingredient"=>{"name"=>"test", "quantity"=>"2", "unit_of_measure"=>"cups"}}
+  [4;35;1mRecipe Load (0.3ms)[0m   [0mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+
+TypeError (can't dup Symbol):
+  app/controllers/ingredients_controller.rb:50:in `create'
+
+Rendered rescues/_trace (120.8ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing IngredientsController#index (for 127.0.0.1 at 2010-03-04 14:46:38) [GET]
+  Parameters: {"recipe_id"=>"1"}
+  [4;36;1mRecipe Load (0.4ms)[0m   [0;1mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+  [4;35;1mIngredient Load (0.4ms)[0m   [0mSELECT * FROM "ingredients" [0m
+Rendering template within layouts/application
+Rendering ingredients/index
+
+ActionView::TemplateError (undefined method `ingredient_path' for #<ActionView::Base:0x1035c7570>) on line #17 of app/views/ingredients/index.html.erb:
+14:     <td><%=h ingredient.name %></td>
+15:     <td><%=h ingredient.quantity %></td>
+16:     <td><%=h ingredient.unit_of_measure %></td>
+17:     <td><%= link_to 'Show', ingredient %></td>
+18:     <td><%= link_to 'Edit', edit_ingredient_path(ingredient) %></td>
+19:     <td><%= link_to 'Destroy', ingredient, :confirm => 'Are you sure?', :method => :delete %></td>
+20:   </tr>
+
+    app/views/ingredients/index.html.erb:17
+    app/views/ingredients/index.html.erb:11:in `each'
+    app/views/ingredients/index.html.erb:11
+    app/controllers/ingredients_controller.rb:13:in `index'
+
+Rendered rescues/_trace (60.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing IngredientsController#index (for 127.0.0.1 at 2010-03-04 14:46:41) [GET]
+  Parameters: {"recipe_id"=>"1"}
+  [4;36;1mRecipe Load (0.3ms)[0m   [0;1mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+  [4;35;1mIngredient Load (0.3ms)[0m   [0mSELECT * FROM "ingredients" [0m
+Rendering template within layouts/application
+Rendering ingredients/index
+
+ActionView::TemplateError (undefined method `ingredient_path' for #<ActionView::Base:0x102f01d08>) on line #17 of app/views/ingredients/index.html.erb:
+14:     <td><%=h ingredient.name %></td>
+15:     <td><%=h ingredient.quantity %></td>
+16:     <td><%=h ingredient.unit_of_measure %></td>
+17:     <td><%= link_to 'Show', ingredient %></td>
+18:     <td><%= link_to 'Edit', edit_ingredient_path(ingredient) %></td>
+19:     <td><%= link_to 'Destroy', ingredient, :confirm => 'Are you sure?', :method => :delete %></td>
+20:   </tr>
+
+    app/views/ingredients/index.html.erb:17
+    app/views/ingredients/index.html.erb:11:in `each'
+    app/views/ingredients/index.html.erb:11
+    app/controllers/ingredients_controller.rb:13:in `index'
+
+Rendered rescues/_trace (61.2ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing IngredientsController#index (for 127.0.0.1 at 2010-03-04 14:47:46) [GET]
+  Parameters: {"recipe_id"=>"1"}
+  [4;36;1mRecipe Load (0.3ms)[0m   [0;1mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+  [4;35;1mIngredient Load (0.4ms)[0m   [0mSELECT * FROM "ingredients" [0m
+Rendering template within layouts/application
+Rendering ingredients/index
+
+ActionView::TemplateError (recipe_ingredient_url failed to generate from {:recipe_id=>#<Ingredient id: 1, recipe_id: nil, name: "test", quantity: #<BigDecimal:102f80a40,'0.2E1',4(8)>, unit_of_measure: "cups", created_at: "2010-03-04 19:38:27", updated_at: "2010-03-04 19:38:27">, :action=>"show", :controller=>"ingredients"}, expected: {:action=>"show", :controller=>"ingredients"}, diff: {:recipe_id=>#<Ingredient id: 1, recipe_id: nil, name: "test", quantity: #<BigDecimal:102f7df20,'0.2E1',4(8)>, unit_of_measure: "cups", created_at: "2010-03-04 19:38:27", updated_at: "2010-03-04 19:38:27">}) on line #17 of app/views/ingredients/index.html.erb:
+14:     <td><%=h ingredient.name %></td>
+15:     <td><%=h ingredient.quantity %></td>
+16:     <td><%=h ingredient.unit_of_measure %></td>
+17:     <td><%= link_to 'Show', recipe_ingredient_path(ingredient) %></td>
+18:     <td><%= link_to 'Edit', edit_recipe_ingredient_path(ingredient) %></td>
+19:     <td><%= link_to 'Destroy', recipe_ingredient_path(ingredient), :confirm => 'Are you sure?', :method => :delete %></td>
+20:   </tr>
+
+    (eval):16:in `recipe_ingredient_path'
+    app/views/ingredients/index.html.erb:17
+    app/views/ingredients/index.html.erb:11:in `each'
+    app/views/ingredients/index.html.erb:11
+    app/controllers/ingredients_controller.rb:13:in `index'
+
+Rendered rescues/_trace (139.9ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing IngredientsController#index (for 127.0.0.1 at 2010-03-04 14:47:52) [GET]
+  Parameters: {"recipe_id"=>"1"}
+  [4;36;1mRecipe Load (0.3ms)[0m   [0;1mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+  [4;35;1mIngredient Load (0.3ms)[0m   [0mSELECT * FROM "ingredients" [0m
+Rendering template within layouts/application
+Rendering ingredients/index
+
+ActionView::TemplateError (recipe_ingredient_url failed to generate from {:recipe_id=>#<Ingredient id: 1, recipe_id: nil, name: "test", quantity: #<BigDecimal:1031248d8,'0.2E1',4(8)>, unit_of_measure: "cups", created_at: "2010-03-04 19:38:27", updated_at: "2010-03-04 19:38:27">, :action=>"show", :controller=>"ingredients"}, expected: {:action=>"show", :controller=>"ingredients"}, diff: {:recipe_id=>#<Ingredient id: 1, recipe_id: nil, name: "test", quantity: #<BigDecimal:103123ca8,'0.2E1',4(8)>, unit_of_measure: "cups", created_at: "2010-03-04 19:38:27", updated_at: "2010-03-04 19:38:27">}) on line #17 of app/views/ingredients/index.html.erb:
+14:     <td><%=h ingredient.name %></td>
+15:     <td><%=h ingredient.quantity %></td>
+16:     <td><%=h ingredient.unit_of_measure %></td>
+17:     <td><%= link_to 'Show', recipe_ingredient_path(ingredient) %></td>
+18:     <td><%= link_to 'Edit', edit_recipe_ingredient_path(ingredient) %></td>
+19:     <td><%= link_to 'Destroy', recipe_ingredient_path(ingredient), :confirm => 'Are you sure?', :method => :delete %></td>
+20:   </tr>
+
+    (eval):16:in `recipe_ingredient_path'
+    app/views/ingredients/index.html.erb:17
+    app/views/ingredients/index.html.erb:11:in `each'
+    app/views/ingredients/index.html.erb:11
+    app/controllers/ingredients_controller.rb:13:in `index'
+
+Rendered rescues/_trace (137.7ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing RecipesController#show (for 127.0.0.1 at 2010-03-04 14:48:58) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mRecipe Load (0.3ms)[0m   [0;1mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering recipes/show
+Completed in 11ms (View: 3, DB: 0) | 200 OK [http://127.0.0.1/recipes/1]
+
+
+Processing RecipesController#show (for 127.0.0.1 at 2010-03-04 14:51:32) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mRecipe Load (0.3ms)[0m   [0mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering recipes/show
+  [4;36;1mIngredient Load (0.2ms)[0m   [0;1mSELECT * FROM "ingredients" WHERE ("ingredients".recipe_id = 1) [0m
+Completed in 20ms (View: 12, DB: 1) | 200 OK [http://127.0.0.1/recipes/1]
+
+
+Processing RecipesController#show (for 127.0.0.1 at 2010-03-04 14:53:13) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mRecipe Load (0.3ms)[0m   [0mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering recipes/show
+  [4;36;1mIngredient Load (0.2ms)[0m   [0;1mSELECT * FROM "ingredients" WHERE ("ingredients".recipe_id = 1) [0m
+Completed in 15ms (View: 7, DB: 1) | 200 OK [http://127.0.0.1/recipes/1]
+
+
+Processing RecipesController#show (for 127.0.0.1 at 2010-03-04 14:53:17) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mRecipe Load (0.3ms)[0m   [0mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering recipes/show
+  [4;36;1mIngredient Load (0.3ms)[0m   [0;1mSELECT * FROM "ingredients" WHERE ("ingredients".recipe_id = 1) [0m
+Completed in 16ms (View: 8, DB: 1) | 200 OK [http://127.0.0.1/recipes/1]
+
+
+Processing RecipesController#show (for 127.0.0.1 at 2010-03-04 14:53:57) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mRecipe Load (0.5ms)[0m   [0mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering recipes/show
+  [4;36;1mIngredient Load (0.2ms)[0m   [0;1mSELECT * FROM "ingredients" WHERE ("ingredients".recipe_id = 1) [0m
+Completed in 89ms (View: 12, DB: 1) | 200 OK [http://127.0.0.1/recipes/1]
+
+
+Processing IngredientsController#new (for 127.0.0.1 at 2010-03-04 14:53:58) [GET]
+  Parameters: {"recipe_id"=>"1"}
+  [4;35;1mRecipe Load (0.3ms)[0m   [0mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering ingredients/new
+Rendered ingredients/_form (5.8ms)
+Completed in 22ms (View: 11, DB: 0) | 200 OK [http://127.0.0.1/recipes/1/ingredients/new]
+
+
+Processing IngredientsController#new (for 127.0.0.1 at 2010-03-04 14:54:21) [GET]
+  Parameters: {"recipe_id"=>"1"}
+  [4;36;1mRecipe Load (0.3ms)[0m   [0;1mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering ingredients/new
+Rendered ingredients/_form (5.5ms)
+Completed in 19ms (View: 8, DB: 0) | 200 OK [http://127.0.0.1/recipes/1/ingredients/new]
+
+
+Processing IngredientsController#create (for 127.0.0.1 at 2010-03-04 14:54:27) [POST]
+  Parameters: {"commit"=>"Save", "recipe_id"=>"1", "authenticity_token"=>"vl+zBSKlo8wRQF20Z7J9dsVuG22R2Rc103J0rIvBN6I=", "ingredient"=>{"name"=>"test", "quantity"=>"2", "unit_of_measure"=>"cups"}}
+  [4;35;1mRecipe Load (0.3ms)[0m   [0mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+
+TypeError (can't dup Symbol):
+  app/controllers/ingredients_controller.rb:50:in `create'
+
+Rendered rescues/_trace (117.9ms)
+Rendered rescues/_request_and_response (0.6ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing IngredientsController#create (for 127.0.0.1 at 2010-03-04 14:54:52) [POST]
+  Parameters: {"commit"=>"Save", "recipe_id"=>"1", "authenticity_token"=>"vl+zBSKlo8wRQF20Z7J9dsVuG22R2Rc103J0rIvBN6I=", "ingredient"=>{"name"=>"test", "quantity"=>"2", "unit_of_measure"=>"cups"}}
+  [4;36;1mRecipe Load (0.3ms)[0m   [0;1mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+  [4;35;1mIngredient Create (0.4ms)[0m   [0mINSERT INTO "ingredients" ("name", "created_at", "quantity", "recipe_id", "updated_at", "unit_of_measure") VALUES('test', '2010-03-04 19:54:52', 2.0, 1, '2010-03-04 19:54:52', 'cups')[0m
+Redirected to http://127.0.0.1:3000/recipes/1
+Completed in 22ms (DB: 1) | 302 Found [http://127.0.0.1/recipes/1/ingredients]
+
+
+Processing RecipesController#show (for 127.0.0.1 at 2010-03-04 14:54:52) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mRecipe Load (0.3ms)[0m   [0;1mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering recipes/show
+  [4;35;1mIngredient Load (0.4ms)[0m   [0mSELECT * FROM "ingredients" WHERE ("ingredients".recipe_id = 1) [0m
+Rendered ingredients/_ingredient (1.2ms)
+Completed in 28ms (View: 17, DB: 1) | 200 OK [http://127.0.0.1/recipes/1]
+
+
+Processing RecipesController#show (for 127.0.0.1 at 2010-03-04 14:55:22) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mRecipe Load (0.4ms)[0m   [0;1mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering recipes/show
+  [4;35;1mIngredient Load (0.5ms)[0m   [0mSELECT * FROM "ingredients" WHERE ("ingredients".recipe_id = 1) [0m
+Rendered ingredients/_ingredient (0.6ms)
+Completed in 21ms (View: 12, DB: 1) | 200 OK [http://127.0.0.1/recipes/1]
+
+
+Processing RecipesController#show (for 127.0.0.1 at 2010-03-04 14:57:27) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mRecipe Load (0.3ms)[0m   [0;1mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering recipes/show
+  [4;35;1mIngredient Load (0.4ms)[0m   [0mSELECT * FROM "ingredients" WHERE ("ingredients".recipe_id = 1) [0m
+ERROR: compiling _run_erb_app47views47ingredients47_ingredient46html46erb_locals_ingredient_ingredient_counter_object RAISED compile error
+/Users/bradfordcp/Projects/ruby/SCM/cloud_core_data_server/app/views/ingredients/_ingredient.html.erb:5: syntax error, unexpected tIDENTIFIER, expecting ')'
+...t' edit_recipe_ingredient_path(ingredient) ).to_s); @output_...
+                              ^
+/Users/bradfordcp/Projects/ruby/SCM/cloud_core_data_server/app/views/ingredients/_ingredient.html.erb:6: syntax error, unexpected tIDENTIFIER, expecting ')'
+...Delete' recipe_ingredient_path(ingredient) :confirm => 'Are ...
+                              ^
+/Users/bradfordcp/Projects/ruby/SCM/cloud_core_data_server/app/views/ingredients/_ingredient.html.erb:6: syntax error, unexpected ':', expecting ')'
+..._ingredient_path(ingredient) :confirm => 'Are you sure?', :m...
+                              ^
+/Users/bradfordcp/Projects/ruby/SCM/cloud_core_data_server/app/views/ingredients/_ingredient.html.erb:6: syntax error, unexpected ',', expecting ')'
+...) :confirm => 'Are you sure?', :method => :delete ).to_s); @...
+                              ^
+Function body:           def _run_erb_app47views47ingredients47_ingredient46html46erb_locals_ingredient_ingredient_counter_object(local_assigns)
+            old_output_buffer = output_buffer;ingredient_counter = local_assigns[:ingredient_counter];ingredient = local_assigns[:ingredient];object = local_assigns[:object];;@output_buffer = '';  __in_erb_template=true ;  content_tag_for :tr, ingredient do ; @output_buffer.concat "\n  <td>"
+; @output_buffer.concat(( ingredient.name ).to_s); @output_buffer.concat "</td>\n  <td>"
+; @output_buffer.concat(( ingredient.quantity ).to_s); @output_buffer.concat "</td>\n  <td>"
+; @output_buffer.concat(( ingredient.unit_of_measure ).to_s); @output_buffer.concat "</td>\n  <td>"
+; @output_buffer.concat(( link_to 'Edit' edit_recipe_ingredient_path(ingredient) ).to_s); @output_buffer.concat "</td>\n  <td>"
+; @output_buffer.concat(( link_to 'Delete' recipe_ingredient_path(ingredient) :confirm => 'Are you sure?', :method => :delete ).to_s); @output_buffer.concat "</td>\n"
+;  end ; @output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: /Users/bradfordcp/Projects/ruby/SCM/cloud_core_data_server/app/views/ingredients/_ingredient.html.erb:10:in `compile!'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:61:in `compile'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:28:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable_partial.rb:20:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:26:in `benchmark'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:26:in `benchmark'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable_partial.rb:19:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_view/template.rb:205:in `render_template'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable_partial.rb:44:in `render_partial'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_view/partials.rb:221:in `render_partial_collection'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.5/lib/active_record/associations/association_collection.rb:369:in `method_missing'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.5/lib/active_record/associations/association_proxy.rb:215:in `method_missing'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.5/lib/active_record/associations/association_proxy.rb:215:in `map'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.5/lib/active_record/associations/association_proxy.rb:215:in `send'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.5/lib/active_record/associations/association_proxy.rb:215:in `method_missing'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.5/lib/active_record/associations/association_collection.rb:369:in `method_missing'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_view/partials.rb:216:in `render_partial_collection'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_view/partials.rb:195:in `render_partial'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:267:in `render'
+/Users/bradfordcp/Projects/ruby/SCM/cloud_core_data_server/app/views/recipes/show.html.erb:33:in `_run_erb_app47views47recipes47show46html46erb'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:34:in `send'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:34:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:306:in `with_template'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:30:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_view/template.rb:205:in `render_template'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:265:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:348:in `_render_with_layout'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:262:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:1250:in `render_for_file'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:951:in `render_without_benchmark'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:51:in `render'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:51:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:135:in `send'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:135:in `custom'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:179:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:179:in `respond'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:173:in `each'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:173:in `respond'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:107:in `respond_to'
+/Users/bradfordcp/Projects/ruby/SCM/cloud_core_data_server/app/controllers/recipes_controller.rb:20:in `show'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:1331:in `send'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:1331:in `perform_action_without_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/filters.rb:617:in `call_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/flash.rb:146:in `perform_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:532:in `send'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:532:in `process_without_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/filters.rb:606:in `process'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:391:in `process'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:386:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/routing/route_set.rb:437:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:87:in `dispatch'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:121:in `_call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:29:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:29:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.5/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:9:in `cache'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:28:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/string_coercion.rb:25:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.1/lib/rack/head.rb:9:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.1/lib/rack/methodoverride.rb:24:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/params_parser.rb:15:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/session/cookie_store.rb:93:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/failsafe.rb:26:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `synchronize'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:114:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/reloader.rb:34:in `run'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:108:in `call'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.5/lib/rails/rack/static.rb:31:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:46:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `each'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `call'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.5/lib/rails/rack/debugger.rb:19:in `call'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.5/lib/rails/rack/log_tailer.rb:17:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.1/lib/rack/content_length.rb:13:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.1/lib/rack/chunked.rb:15:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.1/lib/rack/handler/mongrel.rb:64:in `process'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.1/lib/rack/handler/mongrel.rb:34:in `run'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.5/lib/commands/server.rb:111
+/Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+/Users/bradfordcp/Projects/ruby/SCM/cloud_core_data_server/app/views/ingredients/_ingredient.html.erb:5: syntax error, unexpected tIDENTIFIER, expecting ')'
+...t' edit_recipe_ingredient_path(ingredient) ).to_s); @output_...
+                              ^
+/Users/bradfordcp/Projects/ruby/SCM/cloud_core_data_server/app/views/ingredients/_ingredient.html.erb:6: syntax error, unexpected tIDENTIFIER, expecting ')'
+...Delete' recipe_ingredient_path(ingredient) :confirm => 'Are ...
+                              ^
+/Users/bradfordcp/Projects/ruby/SCM/cloud_core_data_server/app/views/ingredients/_ingredient.html.erb:6: syntax error, unexpected ':', expecting ')'
+..._ingredient_path(ingredient) :confirm => 'Are you sure?', :m...
+                              ^
+/Users/bradfordcp/Projects/ruby/SCM/cloud_core_data_server/app/views/ingredients/_ingredient.html.erb:6: syntax error, unexpected ',', expecting ')'
+...) :confirm => 'Are you sure?', :method => :delete ).to_s); @...
+                              ^) on line #5 of app/views/ingredients/_ingredient.html.erb:
+2:   <td><%= ingredient.name %></td>
+3:   <td><%= ingredient.quantity %></td>
+4:   <td><%= ingredient.unit_of_measure %></td>
+5:   <td><%= link_to 'Edit' edit_recipe_ingredient_path(ingredient) %></td>
+6:   <td><%= link_to 'Delete' recipe_ingredient_path(ingredient) :confirm => 'Are you sure?', :method => :delete %></td>
+7: <% end %>
+
+    app/views/ingredients/_ingredient.html.erb:10:in `compile!'
+    app/views/recipes/show.html.erb:33
+    app/controllers/recipes_controller.rb:20:in `show'
+
+Rendered rescues/_trace (71.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing RecipesController#show (for 127.0.0.1 at 2010-03-04 14:57:48) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mRecipe Load (0.3ms)[0m   [0;1mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering recipes/show
+  [4;35;1mIngredient Load (0.4ms)[0m   [0mSELECT * FROM "ingredients" WHERE ("ingredients".recipe_id = 1) [0m
+Rendered ingredients/_ingredient (4.9ms)
+Completed in 27ms (View: 19, DB: 1) | 200 OK [http://127.0.0.1/recipes/1]
+
+
+Processing IngredientsController#edit (for 127.0.0.1 at 2010-03-04 14:57:52) [GET]
+  Parameters: {"recipe_id"=>"2", "id"=>"1"}
+  [4;36;1mRecipe Load (0.1ms)[0m   [0;1mSELECT * FROM "recipes" WHERE ("recipes"."id" = 2) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Recipe with ID=2):
+  app/controllers/ingredients_controller.rb:5:in `load_recipe'
+
+Rendered rescues/_trace (47.2ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (not_found)
+
+
+Processing RecipesController#show (for 127.0.0.1 at 2010-03-04 14:57:58) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mRecipe Load (0.3ms)[0m   [0mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering recipes/show
+  [4;36;1mIngredient Load (0.4ms)[0m   [0;1mSELECT * FROM "ingredients" WHERE ("ingredients".recipe_id = 1) [0m
+Rendered ingredients/_ingredient (3.7ms)
+Completed in 22ms (View: 14, DB: 1) | 200 OK [http://127.0.0.1/recipes/1]
+
+
+Processing RecipesController#show (for 127.0.0.1 at 2010-03-04 14:58:18) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mRecipe Load (0.3ms)[0m   [0mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering recipes/show
+  [4;36;1mIngredient Load (0.5ms)[0m   [0;1mSELECT * FROM "ingredients" WHERE ("ingredients".recipe_id = 1) [0m
+Rendered ingredients/_ingredient (4.6ms)
+Completed in 26ms (View: 18, DB: 1) | 200 OK [http://127.0.0.1/recipes/1]
+
+
+Processing RecipesController#show (for 127.0.0.1 at 2010-03-04 14:58:30) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mRecipe Load (0.4ms)[0m   [0mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering recipes/show
+  [4;36;1mIngredient Load (0.4ms)[0m   [0;1mSELECT * FROM "ingredients" WHERE ("ingredients".recipe_id = 1) [0m
+Rendered ingredients/_ingredient (4.8ms)
+Completed in 98ms (View: 18, DB: 1) | 200 OK [http://127.0.0.1/recipes/1]
+
+
+Processing IngredientsController#edit (for 127.0.0.1 at 2010-03-04 14:58:34) [GET]
+  Parameters: {"recipe_id"=>"1", "id"=>"2"}
+  [4;35;1mRecipe Load (0.3ms)[0m   [0mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+  [4;36;1mIngredient Load (0.3ms)[0m   [0;1mSELECT * FROM "ingredients" WHERE ("ingredients"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering ingredients/edit
+Rendered ingredients/_form (5.9ms)
+
+ActionView::TemplateError (undefined method `ingredient_path' for #<ActionView::Base:0x103490648>) on line #5 of app/views/ingredients/edit.html.erb:
+2: 
+3: <%= render :partial => "form" %>
+4: 
+5: <%= link_to 'Show', @ingredient %> |
+6: <%= link_to 'Back', recipe_ingredients_path %>
+
+    app/views/ingredients/edit.html.erb:5
+
+Rendered rescues/_trace (55.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing IngredientsController#edit (for 127.0.0.1 at 2010-03-04 14:58:56) [GET]
+  Parameters: {"recipe_id"=>"1", "id"=>"2"}
+  [4;35;1mRecipe Load (0.3ms)[0m   [0mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+  [4;36;1mIngredient Load (0.3ms)[0m   [0;1mSELECT * FROM "ingredients" WHERE ("ingredients"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering ingredients/edit
+Rendered ingredients/_form (6.0ms)
+Completed in 25ms (View: 12, DB: 1) | 200 OK [http://127.0.0.1/recipes/1/ingredients/2/edit]
+
+
+Processing RecipesController#show (for 127.0.0.1 at 2010-03-04 14:58:58) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mRecipe Load (0.3ms)[0m   [0mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering recipes/show
+  [4;36;1mIngredient Load (0.4ms)[0m   [0;1mSELECT * FROM "ingredients" WHERE ("ingredients".recipe_id = 1) [0m
+Rendered ingredients/_ingredient (3.9ms)
+Completed in 22ms (View: 14, DB: 1) | 200 OK [http://127.0.0.1/recipes/1]
+
+
+Processing IngredientsController#destroy (for 127.0.0.1 at 2010-03-04 15:03:17) [DELETE]
+  Parameters: {"recipe_id"=>"1", "authenticity_token"=>"vl+zBSKlo8wRQF20Z7J9dsVuG22R2Rc103J0rIvBN6I=", "id"=>"2"}
+  [4;35;1mRecipe Load (0.4ms)[0m   [0mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+  [4;36;1mIngredient Load (0.4ms)[0m   [0;1mSELECT * FROM "ingredients" WHERE ("ingredients"."id" = 2) [0m
+
+NoMethodError (undefined method `deleted=' for #<Ingredient:0x1030e60b0>):
+  app/models/ingredient.rb:16:in `destroy'
+  app/controllers/ingredients_controller.rb:85:in `destroy'
+
+Rendered rescues/_trace (47.3ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing RecipesController#show (for 127.0.0.1 at 2010-03-04 15:03:53) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mRecipe Load (0.3ms)[0m   [0mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering recipes/show
+  [4;36;1mIngredient Load (0.4ms)[0m   [0;1mSELECT * FROM "ingredients" WHERE ("ingredients".recipe_id = 1) [0m
+Rendered ingredients/_ingredient (3.9ms)
+Completed in 23ms (View: 14, DB: 1) | 200 OK [http://127.0.0.1/recipes/1]
+
+
+Processing IngredientsController#destroy (for 127.0.0.1 at 2010-03-04 15:03:56) [DELETE]
+  Parameters: {"recipe_id"=>"1", "authenticity_token"=>"vl+zBSKlo8wRQF20Z7J9dsVuG22R2Rc103J0rIvBN6I=", "id"=>"2"}
+  [4;35;1mRecipe Load (1.9ms)[0m   [0mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+  [4;36;1mIngredient Load (0.4ms)[0m   [0;1mSELECT * FROM "ingredients" WHERE ("ingredients"."id" = 2) [0m
+
+NoMethodError (undefined method `deleted=' for #<Ingredient:0x10337ff60>):
+  app/models/ingredient.rb:16:in `destroy'
+  app/controllers/ingredients_controller.rb:85:in `destroy'
+
+Rendered rescues/_trace (49.0ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateRecipes (20100227201129)
+Migrating to AddDeleteToRecipe (20100301042306)
+Migrating to CreateIngredients (20100304190922)
+Migrating to AddDeleteToIngredient (20100304200443)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mALTER TABLE "ingredients" ADD "deleted" boolean DEFAULT 'f'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100304200443')[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mPRAGMA index_list("ingredients")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("recipes")[0m
+
+
+Processing IngredientsController#destroy (for 127.0.0.1 at 2010-03-04 15:05:30) [DELETE]
+  Parameters: {"recipe_id"=>"1", "authenticity_token"=>"vl+zBSKlo8wRQF20Z7J9dsVuG22R2Rc103J0rIvBN6I=", "id"=>"2"}
+  [4;35;1mRecipe Load (0.3ms)[0m   [0mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+  [4;36;1mIngredient Load (0.3ms)[0m   [0;1mSELECT * FROM "ingredients" WHERE ("ingredients"."id" = 2) [0m
+  [4;35;1mIngredient Update (0.3ms)[0m   [0mUPDATE "ingredients" SET "updated_at" = '2010-03-04 20:05:30', "deleted" = 't' WHERE "id" = 2[0m
+Redirected to http://127.0.0.1:3000/recipes/1
+Completed in 21ms (DB: 1) | 302 Found [http://127.0.0.1/recipes/1/ingredients/2]
+
+
+Processing RecipesController#show (for 127.0.0.1 at 2010-03-04 15:05:30) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mRecipe Load (0.4ms)[0m   [0;1mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering recipes/show
+  [4;35;1mIngredient Load (0.5ms)[0m   [0mSELECT * FROM "ingredients" WHERE ("ingredients".recipe_id = 1) [0m
+Rendered ingredients/_ingredient (3.9ms)
+Completed in 93ms (View: 15, DB: 1) | 200 OK [http://127.0.0.1/recipes/1]
+
+
+Processing RecipesController#show (for 127.0.0.1 at 2010-03-04 15:06:26) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mRecipe Load (0.3ms)[0m   [0;1mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering recipes/show
+  [4;35;1mIngredient Load (0.4ms)[0m   [0mSELECT * FROM "ingredients" WHERE ("ingredients".recipe_id = 1) [0m
+Rendered ingredients/_ingredient (4.8ms)
+Completed in 27ms (View: 19, DB: 1) | 200 OK [http://127.0.0.1/recipes/1]
+
+
+Processing RecipesController#show (for 127.0.0.1 at 2010-03-04 15:06:49) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mRecipe Load (0.3ms)[0m   [0;1mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering recipes/show
+  [4;35;1mIngredient Load (0.4ms)[0m   [0mSELECT * FROM "ingredients" WHERE ("ingredients".recipe_id = 1) [0m
+Rendered ingredients/_ingredient (3.9ms)
+Completed in 26ms (View: 18, DB: 1) | 200 OK [http://127.0.0.1/recipes/1]
+
+
+Processing IngredientsController#edit (for 127.0.0.1 at 2010-03-04 15:07:22) [GET]
+  Parameters: {"recipe_id"=>"1", "id"=>"2"}
+  [4;36;1mRecipe Load (0.3ms)[0m   [0;1mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+  [4;35;1mIngredient Load (0.3ms)[0m   [0mSELECT * FROM "ingredients" WHERE ("ingredients"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering ingredients/edit
+Rendered ingredients/_form (6.5ms)
+Completed in 21ms (View: 9, DB: 1) | 200 OK [http://127.0.0.1/recipes/1/ingredients/2/edit]
+
+
+Processing RecipesController#show (for 127.0.0.1 at 2010-03-04 15:07:24) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mRecipe Load (0.3ms)[0m   [0;1mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering recipes/show
+  [4;35;1mIngredient Load (0.4ms)[0m   [0mSELECT * FROM "ingredients" WHERE ("ingredients".recipe_id = 1) [0m
+Rendered ingredients/_ingredient (3.9ms)
+Completed in 88ms (View: 14, DB: 1) | 200 OK [http://127.0.0.1/recipes/1]
+
+
+Processing IngredientsController#destroy (for 127.0.0.1 at 2010-03-04 15:07:26) [DELETE]
+  Parameters: {"recipe_id"=>"1", "authenticity_token"=>"vl+zBSKlo8wRQF20Z7J9dsVuG22R2Rc103J0rIvBN6I=", "id"=>"2"}
+  [4;36;1mRecipe Load (0.4ms)[0m   [0;1mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+  [4;35;1mIngredient Load (0.4ms)[0m   [0mSELECT * FROM "ingredients" WHERE ("ingredients"."id" = 2) [0m
+Redirected to http://127.0.0.1:3000/recipes/1
+Completed in 22ms (DB: 1) | 302 Found [http://127.0.0.1/recipes/1/ingredients/2]
+
+
+Processing RecipesController#show (for 127.0.0.1 at 2010-03-04 15:07:27) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mRecipe Load (0.3ms)[0m   [0;1mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering recipes/show
+  [4;35;1mIngredient Load (0.4ms)[0m   [0mSELECT * FROM "ingredients" WHERE ("ingredients".recipe_id = 1) [0m
+Rendered ingredients/_ingredient (3.8ms)
+Completed in 23ms (View: 14, DB: 1) | 200 OK [http://127.0.0.1/recipes/1]
+
+
+Processing IngredientsController#edit (for 127.0.0.1 at 2010-03-04 15:07:56) [GET]
+  Parameters: {"recipe_id"=>"1", "id"=>"2"}
+  [4;36;1mRecipe Load (0.3ms)[0m   [0;1mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+  [4;35;1mIngredient Load (0.3ms)[0m   [0mSELECT * FROM "ingredients" WHERE ("ingredients"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering ingredients/edit
+Rendered ingredients/_form (8.0ms)
+Completed in 25ms (View: 14, DB: 1) | 200 OK [http://127.0.0.1/recipes/1/ingredients/2/edit]
+
+
+Processing IngredientsController#update (for 127.0.0.1 at 2010-03-04 15:07:58) [PUT]
+  Parameters: {"commit"=>"Save", "recipe_id"=>"1", "authenticity_token"=>"vl+zBSKlo8wRQF20Z7J9dsVuG22R2Rc103J0rIvBN6I=", "id"=>"2", "ingredient"=>{"name"=>"test", "quantity"=>"2", "deleted"=>"0", "unit_of_measure"=>"cups"}}
+  [4;36;1mRecipe Load (0.3ms)[0m   [0;1mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+  [4;35;1mIngredient Load (0.3ms)[0m   [0mSELECT * FROM "ingredients" WHERE ("ingredients"."id" = 2) [0m
+  [4;36;1mIngredient Update (0.4ms)[0m   [0;1mUPDATE "ingredients" SET "updated_at" = '2010-03-04 20:07:58', "deleted" = 'f' WHERE "id" = 2[0m
+Redirected to http://127.0.0.1:3000/recipes/1
+Completed in 88ms (DB: 1) | 302 Found [http://127.0.0.1/recipes/1/ingredients/2]
+
+
+Processing RecipesController#show (for 127.0.0.1 at 2010-03-04 15:07:58) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mRecipe Load (0.3ms)[0m   [0mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering recipes/show
+  [4;36;1mIngredient Load (0.4ms)[0m   [0;1mSELECT * FROM "ingredients" WHERE ("ingredients".recipe_id = 1) [0m
+Rendered ingredients/_ingredient (3.9ms)
+Completed in 23ms (View: 14, DB: 1) | 200 OK [http://127.0.0.1/recipes/1]

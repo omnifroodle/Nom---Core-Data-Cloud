@@ -1,5 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :recipes
+  map.resources :recipes, :has_many => [:ingredients]
 
   # The priority is based upon order of creation: first created -> highest priority.
 
