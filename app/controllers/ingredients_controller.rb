@@ -46,11 +46,11 @@ class IngredientsController < ApplicationController
   # POST /ingredients
   # POST /ingredients.xml
   def create
-    #@ingredient = Ingredient.new(params[:ingredient])
-    @ingredient = @recipe.ingredients.build( params[:ingredient])
+    @ingredient = Ingredient.new(params[:ingredient])
+    @recipe.ingredients << @ingredient
 
     respond_to do |format|
-      if @ingredient.save
+      if @recipe.save
         flash[:notice] = 'Ingredient was successfully created.'
         format.html { redirect_to(@recipe) }
         format.xml  { render :xml => @ingredient, :status => :created, :location => @ingredient }
